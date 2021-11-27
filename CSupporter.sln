@@ -3,9 +3,49 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{AFCEEC50-12DB-4622-907E-953F1BE63BE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{CA5C9638-B67D-4436-AFA7-8B4CBF57CC56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Contractors", "CSupporter.Services.Contractors\CSupporter.Services.Contractors.csproj", "{75700304-E30A-474A-AB9F-0240A88AFAAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Factures", "CSupporter.Services.Factures\CSupporter.Services.Factures.csproj", "{E8600C87-1A89-4403-BC41-D46D8312280E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Products", "CSupporter.Services.Products\CSupporter.Services.Products.csproj", "{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Income", "CSupporter.Services.Income\CSupporter.Services.Income.csproj", "{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75700304-E30A-474A-AB9F-0240A88AFAAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75700304-E30A-474A-AB9F-0240A88AFAAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75700304-E30A-474A-AB9F-0240A88AFAAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75700304-E30A-474A-AB9F-0240A88AFAAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8600C87-1A89-4403-BC41-D46D8312280E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8600C87-1A89-4403-BC41-D46D8312280E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8600C87-1A89-4403-BC41-D46D8312280E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8600C87-1A89-4403-BC41-D46D8312280E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{75700304-E30A-474A-AB9F-0240A88AFAAE} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
+		{E8600C87-1A89-4403-BC41-D46D8312280E} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
+		{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
+		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEA75859-5686-446E-ACC8-AD283086A2AC}
