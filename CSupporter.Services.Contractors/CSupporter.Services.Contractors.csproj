@@ -17,13 +17,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Data\DbContexts\" />
-    <Folder Include="Models\Dtos\" />
-    <Folder Include="Mappings\" />
-    <Folder Include="Repositories\IRepositories\" />
-    <Folder Include="Services\IServices\" />
-  </ItemGroup>
-
 </Project>
