@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Product
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Income", "CSupporter.Services.Income\CSupporter.Services.Income.csproj", "{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.View", "CSupporter.View\CSupporter.View.csproj", "{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{E8600C87-1A89-4403-BC41-D46D8312280E} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
 		{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
 		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
+		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537} = {CA5C9638-B67D-4436-AFA7-8B4CBF57CC56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEA75859-5686-446E-ACC8-AD283086A2AC}
