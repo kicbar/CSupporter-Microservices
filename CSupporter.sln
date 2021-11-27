@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Income"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.View", "CSupporter.View\CSupporter.View.csproj", "{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{0E77281D-2444-4DB9-AA9C-E1FFA571DAF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.MessageBus", "CSupporter.MessageBus\CSupporter.MessageBus.csproj", "{1BDABF78-7041-44B7-A829-18EB1BC8EC46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,10 @@ Global
 		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BDABF78-7041-44B7-A829-18EB1BC8EC46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BDABF78-7041-44B7-A829-18EB1BC8EC46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BDABF78-7041-44B7-A829-18EB1BC8EC46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BDABF78-7041-44B7-A829-18EB1BC8EC46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +61,7 @@ Global
 		{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
 		{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8} = {AFCEEC50-12DB-4622-907E-953F1BE63BE9}
 		{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537} = {CA5C9638-B67D-4436-AFA7-8B4CBF57CC56}
+		{1BDABF78-7041-44B7-A829-18EB1BC8EC46} = {0E77281D-2444-4DB9-AA9C-E1FFA571DAF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEA75859-5686-446E-ACC8-AD283086A2AC}
