@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CSupporter.Services.Contractors.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Contractors.Repositories.IRepositories
 {
     public interface IContractorRepository
     {
+        List<Contractor> GetAllContractors();
     }
 }

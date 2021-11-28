@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CSupporter.Services.Contractors.Models.Dtos;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Contractors.Services.IServices
 {
-    public class IContractorService
+    public interface IContractorService
     {
+        List<ContractorDto> GetAllContractors();
     }
 }

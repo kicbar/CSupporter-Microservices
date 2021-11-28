@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using CSupporter.Services.Contractors.Models.Dtos;
+using CSupporter.Services.Contractors.Services.IServices;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Contractors.Controllers
 {
@@ -10,16 +9,18 @@ namespace CSupporter.Services.Contractors.Controllers
     [Route("api/[controller]")]
     public class ContractorController : Controller
     {
-        public ContractorController()
-        {
+        private readonly IContractorService _contractorService;
 
+        public ContractorController(IContractorService contractorService)
+        {
+            _contractorService = contractorService;
         }
 
         [HttpGet]
         [ActionName("GetAllContractors")]
-        public ActionResult<string> GetAllContractors()
+        public ActionResult<List<ContractorDto>> GetAllContractors()
         {
-            return ("Zwracam wszystkich kotraktorów");
+            return _contractorService.GetAllContractors();
         }
     }
 }
