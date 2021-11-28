@@ -1,6 +1,7 @@
 ﻿using CSupporter.Services.Contractors.Data.DbContexts;
 using CSupporter.Services.Contractors.Models;
 using CSupporter.Services.Contractors.Repositories.IRepositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -35,6 +36,20 @@ namespace CSupporter.Services.Contractors.Repositories
             _contractorDbContext.SaveChanges();
 
             return contractor;
+        }
+
+        public bool DeleteContractor(Contractor contractor)
+        {
+            try
+            {
+                _contractorDbContext.Contractors.Remove(contractor);
+                _contractorDbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

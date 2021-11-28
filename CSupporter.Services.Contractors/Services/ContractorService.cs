@@ -36,5 +36,13 @@ namespace CSupporter.Services.Contractors.Services
 
             return _mapper.Map<ContractorDto>(_contractorRepository.CreateUpdateContractor(contractor));
         }
+
+        public bool DeleteContractor(int contractorId)
+        {
+            Contractor contractor = _contractorRepository.GetContractorById(contractorId);
+            bool resultOfRemove = _contractorRepository.DeleteContractor(contractor);
+
+            return resultOfRemove;
+        }
     }
 }

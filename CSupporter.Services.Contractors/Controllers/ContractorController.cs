@@ -50,5 +50,18 @@ namespace CSupporter.Services.Contractors.Controllers
 
             return Created($"api/[Contractor]/{createdContracor.ContractorId}", null);
         }
+
+        [HttpDelete]
+        [Route("{contractorId}")]
+        [ActionName("DeleteContractor")]
+        public ActionResult DeleteContractor(int contractorId)
+        {
+            bool result = _contractorService.DeleteContractor(contractorId);
+
+            if (!result)
+                return BadRequest();
+
+            return Ok();
+        }
     }
 }
