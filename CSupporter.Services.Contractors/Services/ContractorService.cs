@@ -29,5 +29,12 @@ namespace CSupporter.Services.Contractors.Services
             Contractor contractor = _contractorRepository.GetContractorById(contractorId);
             return _mapper.Map<ContractorDto>(contractor);
         }
+
+        public ContractorDto CreateUpdateContractor(ContractorDto contractorDto)
+        {
+            Contractor contractor = _mapper.Map<Contractor>(contractorDto);
+
+            return _mapper.Map<ContractorDto>(_contractorRepository.CreateUpdateContractor(contractor));
+        }
     }
 }

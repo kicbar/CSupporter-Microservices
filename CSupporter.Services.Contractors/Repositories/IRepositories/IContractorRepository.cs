@@ -7,5 +7,6 @@ namespace CSupporter.Services.Contractors.Repositories.IRepositories
     {
         List<Contractor> GetAllContractors();
         Contractor GetContractorById(int contractorId);
+        Contractor CreateUpdateContractor(Contractor contractor);
     }
 }

@@ -24,5 +24,17 @@ namespace CSupporter.Services.Contractors.Repositories
         {
             return _contractorDbContext.Contractors.Where(c => c.ContractorId == contractorId).FirstOrDefault();
         }
+
+        public Contractor CreateUpdateContractor(Contractor contractor)
+        {
+            if (contractor.ContractorId > 0)
+                _contractorDbContext.Update(contractor);
+            else
+                _contractorDbContext.Add(contractor);
+
+            _contractorDbContext.SaveChanges();
+
+            return contractor;
+        }
     }
 }

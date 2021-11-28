@@ -38,5 +38,17 @@ namespace CSupporter.Services.Contractors.Controllers
 
             return Ok(contractorDto);
         }
+
+        [HttpPost]
+        [ActionName("CreateUpdateContractor")]
+        public ActionResult CreateUpdateContractor([FromBody] ContractorDto contractorDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            ContractorDto createdContracor = _contractorService.CreateUpdateContractor(contractorDto);
+
+            return Created($"api/[Contractor]/{createdContracor.ContractorId}", null);
+        }
     }
 }

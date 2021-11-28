@@ -7,5 +7,6 @@ namespace CSupporter.Services.Contractors.Services.IServices
     {
         List<ContractorDto> GetAllContractors();
         ContractorDto GetContractorById(int contractorId);
+        ContractorDto CreateUpdateContractor(ContractorDto contractorDto);
     }
 }
