@@ -29,7 +29,10 @@ namespace CSupporter.Services.Contractors.Repositories
         public Contractor CreateUpdateContractor(Contractor contractor)
         {
             if (contractor.ContractorId > 0)
+            {
+                contractor.UpdateDate = DateTime.Now;
                 _contractorDbContext.Update(contractor);
+            }
             else
                 _contractorDbContext.Add(contractor);
 
