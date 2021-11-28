@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CSupporter.Services.Factures.Models.Dtos;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Factures.Services.IServices
 {
     public interface IFactureService
     {
+        List<FactureDto> GetAllFactures();
     }
 }

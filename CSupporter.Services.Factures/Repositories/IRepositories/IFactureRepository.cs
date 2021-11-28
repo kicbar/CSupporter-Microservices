@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CSupporter.Services.Factures.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Factures.Repositories.IRepositories
 {
     public interface IFactureRepository
     {
+        List<Facture> GetAllFactures();
     }
 }
