@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CSupporter.Services.Factures.Services.IServices
 {
-    public interface IFactureServices
+    public interface IFactureService
     {
     }
 }
