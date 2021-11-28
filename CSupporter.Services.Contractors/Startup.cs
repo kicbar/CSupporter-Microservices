@@ -1,6 +1,10 @@
 using AutoMapper;
 using CSupporter.Services.Contractors.Data.DbContexts;
 using CSupporter.Services.Contractors.Mappings;
+using CSupporter.Services.Contractors.Repositories;
+using CSupporter.Services.Contractors.Repositories.IRepositories;
+using CSupporter.Services.Contractors.Services;
+using CSupporter.Services.Contractors.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +29,9 @@ namespace CSupporter.Services.Contractors
         {
             services.AddDbContext<ContractorDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IContractorService, ContractorService>();
+            services.AddTransient<IContractorRepository, ContractorRepository>();
 
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
