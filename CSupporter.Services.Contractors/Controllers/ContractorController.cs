@@ -20,7 +20,23 @@ namespace CSupporter.Services.Contractors.Controllers
         [ActionName("GetAllContractors")]
         public ActionResult<List<ContractorDto>> GetAllContractors()
         {
-            return _contractorService.GetAllContractors();
+            List<ContractorDto> contractorsDto = _contractorService.GetAllContractors();
+            return Ok(contractorsDto);
+        }
+
+        [HttpGet]
+        [Route("{contractorId}")]
+        [ActionName("GetContractorById")]
+        public ActionResult<ContractorDto> GetContractorById(int contractorId)
+        {
+            ContractorDto contractorDto = _contractorService.GetContractorById(contractorId);
+
+            if (contractorDto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(contractorDto);
         }
     }
 }

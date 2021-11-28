@@ -1,10 +1,8 @@
 ﻿using CSupporter.Services.Contractors.Data.DbContexts;
 using CSupporter.Services.Contractors.Models;
 using CSupporter.Services.Contractors.Repositories.IRepositories;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Contractors.Repositories
 {
@@ -20,6 +18,11 @@ namespace CSupporter.Services.Contractors.Repositories
         public List<Contractor> GetAllContractors()
         {
             return _contractorDbContext.Contractors.ToList();
+        }
+
+        public Contractor GetContractorById(int contractorId)
+        {
+            return _contractorDbContext.Contractors.Where(c => c.ContractorId == contractorId).FirstOrDefault();
         }
     }
 }

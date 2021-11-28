@@ -6,5 +6,6 @@ namespace CSupporter.Services.Contractors.Repositories.IRepositories
     public interface IContractorRepository
     {
         List<Contractor> GetAllContractors();
+        Contractor GetContractorById(int contractorId);
     }
 }

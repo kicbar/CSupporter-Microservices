@@ -3,10 +3,7 @@ using CSupporter.Services.Contractors.Models;
 using CSupporter.Services.Contractors.Models.Dtos;
 using CSupporter.Services.Contractors.Repositories.IRepositories;
 using CSupporter.Services.Contractors.Services.IServices;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Contractors.Services
 {
@@ -25,6 +22,12 @@ namespace CSupporter.Services.Contractors.Services
         {
             List<Contractor> contractorsList = _contractorRepository.GetAllContractors();
             return _mapper.Map<List<ContractorDto>>(contractorsList);
+        }
+
+        public ContractorDto GetContractorById(int contractorId)
+        {
+            Contractor contractor = _contractorRepository.GetContractorById(contractorId);
+            return _mapper.Map<ContractorDto>(contractor);
         }
     }
 }
