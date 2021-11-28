@@ -1,16 +1,13 @@
 ﻿using CSupporter.Services.Factures.Models.Dtos;
 using CSupporter.Services.Factures.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Factures.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class FactureController
+    public class FactureController : Controller
     {
         private readonly IFactureService _factureService;
 
@@ -21,9 +18,22 @@ namespace CSupporter.Services.Factures.Controllers
 
         [HttpGet]
         [ActionName("GetAllFactures")]
-        public List<FactureDto> GetAllFactures()
+        public ActionResult<List<FactureDto>> GetAllFactures()
         {
-            return _factureService.GetAllFactures();
+            return Ok(_factureService.GetAllFactures());
+        }
+
+        [HttpGet]
+        [Route("{contractorId}")]
+        [ActionName("GetFactureById")]
+        public ActionResult<FactureDto> GetFactureById(int contractorId)
+        {
+            FactureDto factureDto = _factureService.GetFactureById(contractorId);
+
+            if (factureDto == null)
+                return NotFound();
+
+            return Ok(factureDto);
         }
     }
 }

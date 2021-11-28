@@ -24,5 +24,12 @@ namespace CSupporter.Services.Factures.Services
 
             return _mapper.Map<List<FactureDto>>(factures);
         }
+
+        public FactureDto GetFactureById(int factureId)
+        {
+            Facture facture = _factureRepository.GetFactureById(factureId);
+
+            return _mapper.Map<FactureDto>(facture);
+        }
     }
 }

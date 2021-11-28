@@ -20,7 +20,9 @@ namespace CSupporter.Services.Factures.Repositories
             return _factureDbContext.Factures.ToList();
         }
 
-        
-
+        public Facture GetFactureById(int contractorId)
+        {
+            return _factureDbContext.Factures.Where(f => f.ContractorId == contractorId).FirstOrDefault();
+        }
     }
 }
