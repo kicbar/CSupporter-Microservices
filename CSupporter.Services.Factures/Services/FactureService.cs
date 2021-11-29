@@ -31,5 +31,12 @@ namespace CSupporter.Services.Factures.Services
 
             return _mapper.Map<FactureDto>(facture);
         }
+
+        public FactureDto CreateUpdateFacture(FactureDto factureDto)
+        {
+            Facture facture = _factureRepository.CreateUpdateFacture(_mapper.Map<Facture>(factureDto));
+            
+            return _mapper.Map<FactureDto>(facture);
+        }
     }
 }

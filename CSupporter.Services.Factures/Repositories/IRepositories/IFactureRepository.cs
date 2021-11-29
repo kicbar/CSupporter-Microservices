@@ -6,6 +6,7 @@ namespace CSupporter.Services.Factures.Repositories.IRepositories
     public interface IFactureRepository
     {
         List<Facture> GetAllFactures();
-        Facture GetFactureById(int contractorId);
+        Facture GetFactureById(int factureId);
+        Facture CreateUpdateFacture(Facture facture);
     }
 }

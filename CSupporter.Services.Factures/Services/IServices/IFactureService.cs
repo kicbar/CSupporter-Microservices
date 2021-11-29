@@ -6,6 +6,7 @@ namespace CSupporter.Services.Factures.Services.IServices
     public interface IFactureService
     {
         List<FactureDto> GetAllFactures();
-        FactureDto GetFactureById(int contractorId);
+        FactureDto GetFactureById(int factureId);
+        FactureDto CreateUpdateFacture(FactureDto factureDto);
     }
 }

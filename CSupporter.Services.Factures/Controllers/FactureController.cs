@@ -35,5 +35,17 @@ namespace CSupporter.Services.Factures.Controllers
 
             return Ok(factureDto);
         }
+
+        [HttpPost]
+        [ActionName("CreateUpdateFacture")]
+        public ActionResult<FactureDto> CreateUpdateFacture(FactureDto factureDto)
+        {
+            FactureDto createdFactureDto = _factureService.CreateUpdateFacture(factureDto);
+
+            if (factureDto == null)
+                return NotFound();
+
+            return Created($"api/Facture/{createdFactureDto.FactureId}", null);
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace CSupporter.Services.Contractors.Controllers
 
             ContractorDto createdContracor = _contractorService.CreateUpdateContractor(contractorDto);
 
-            return Created($"api/[Contractor]/{createdContracor.ContractorId}", null);
+            return Created($"api/Contractor/{createdContracor.ContractorId}", null);
         }
 
         [HttpDelete]

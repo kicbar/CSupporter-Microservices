@@ -1,6 +1,7 @@
 ﻿using CSupporter.Services.Factures.Data.DbContexts;
 using CSupporter.Services.Factures.Models;
 using CSupporter.Services.Factures.Repositories.IRepositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,9 +21,28 @@ namespace CSupporter.Services.Factures.Repositories
             return _factureDbContext.Factures.ToList();
         }
 
-        public Facture GetFactureById(int contractorId)
+        public Facture GetFactureById(int factureId)
         {
-            return _factureDbContext.Factures.Where(f => f.ContractorId == contractorId).FirstOrDefault();
+            return _factureDbContext.Factures.Where(f => f.FactureId == factureId).FirstOrDefault();
         }
+
+        public Facture CreateUpdateFacture(Facture facture)
+        {
+            Facture factureExist = _factureDbContext.Factures.Where(f => f.FactureId == facture.FactureId).FirstOrDefault();
+            if (factureExist != null)
+            {
+                facture.UpdateDate = DateTime.Now;
+                _factureDbContext.Update(facture);
+            }
+            else
+            {
+                facture.FactureId = 0;
+                _factureDbContext.Add(facture);
+            }
+            _factureDbContext.SaveChanges();
+
+            return facture;
+        }
+
     }
 }
