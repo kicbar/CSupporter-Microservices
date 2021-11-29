@@ -8,18 +8,12 @@ using CSupporter.Services.Factures.Services;
 using CSupporter.Services.Factures.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Factures
 {
@@ -34,11 +28,15 @@ namespace CSupporter.Services.Factures
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient<IContractorAPIService, ContractorAPIService>();
+
             services.AddDbContext<FactureDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            
             services.AddScoped<IFactureService, FactureService>();
             services.AddTransient<IFactureRepository, FactureRepository>();
+
+            services.AddScoped<IContractorAPIService, ContractorAPIService>();
 
             SD.ContractorsAPI = Configuration["ServiceUrls:ContractorsAPI"];
 
