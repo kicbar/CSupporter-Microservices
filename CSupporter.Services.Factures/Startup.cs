@@ -1,6 +1,7 @@
 using AutoMapper;
 using CSupporter.Services.Factures.Data.DbContexts;
 using CSupporter.Services.Factures.Mappings;
+using CSupporter.Services.Factures.Models;
 using CSupporter.Services.Factures.Repositories;
 using CSupporter.Services.Factures.Repositories.IRepositories;
 using CSupporter.Services.Factures.Services;
@@ -38,6 +39,8 @@ namespace CSupporter.Services.Factures
 
             services.AddScoped<IFactureService, FactureService>();
             services.AddTransient<IFactureRepository, FactureRepository>();
+
+            SD.ContractorsAPI = Configuration["ServiceUrls:ContractorsAPI"];
 
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
