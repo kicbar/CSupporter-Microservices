@@ -44,5 +44,18 @@ namespace CSupporter.Services.Factures.Repositories
             return facture;
         }
 
+        public bool DeleteFacture(int factureId)
+        {
+            Facture factureExist = _factureDbContext.Factures.Where(f => f.FactureId == factureId).FirstOrDefault();
+
+            if (factureExist != null)
+            {
+                _factureDbContext.Factures.Remove(factureExist);
+                _factureDbContext.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
     }
 }

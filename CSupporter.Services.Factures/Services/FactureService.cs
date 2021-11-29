@@ -38,5 +38,10 @@ namespace CSupporter.Services.Factures.Services
             
             return _mapper.Map<FactureDto>(facture);
         }
+
+        public bool DeleteFacture(int factureId)
+        {
+            return _factureRepository.DeleteFacture(factureId);
+        }
     }
 }

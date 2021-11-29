@@ -24,11 +24,11 @@ namespace CSupporter.Services.Factures.Controllers
         }
 
         [HttpGet]
-        [Route("{contractorId}")]
+        [Route("{factureId}")]
         [ActionName("GetFactureById")]
-        public ActionResult<FactureDto> GetFactureById(int contractorId)
+        public ActionResult<FactureDto> GetFactureById(int factureId)
         {
-            FactureDto factureDto = _factureService.GetFactureById(contractorId);
+            FactureDto factureDto = _factureService.GetFactureById(factureId);
 
             if (factureDto == null)
                 return NotFound();
@@ -46,6 +46,19 @@ namespace CSupporter.Services.Factures.Controllers
                 return NotFound();
 
             return Created($"api/Facture/{createdFactureDto.FactureId}", null);
+        }
+
+        [HttpDelete]
+        [Route("{factureId}")]
+        [ActionName("DeleteFacture")]
+        public ActionResult DeleteFacture(int factureId)
+        {
+            bool result = _factureService.DeleteFacture(factureId);
+
+            if (!result)
+                return BadRequest();
+
+            return Ok();
         }
     }
 }
