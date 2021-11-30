@@ -8,6 +8,7 @@ namespace CSupporter.Services.Factures.Models
         public int PositionId { get; set; }
         [Required]
         public string ProductName { get; set; }
+        [Range(1, 1000)]
         [Required]
         public int ProductAmount { get; set; } = 1;
         [Required]

@@ -23,8 +23,8 @@ namespace CSupporter.Services.Factures.Repositories
 
         public Position AddPositionToFacture(Position position)
         {
-            //calculate facture value always during adding or deleting position
             _factureDbContext.Add(position);
+            CalculateFactureValue(position.FactureId);
             _factureDbContext.SaveChanges();
             return position;
         }
@@ -33,6 +33,22 @@ namespace CSupporter.Services.Factures.Repositories
         {
             //calculate facture value always during adding or deleting position
             throw new NotImplementedException();
+        }
+
+
+        private void CalculateFactureValue(int factureId)
+        {
+            double factureValue = 0;
+            List<Position> positions = _factureDbContext.Positions.Where(position => position.FactureId == factureId).ToList();
+
+            foreach (Position position in positions)
+            {
+                factureValue = factureValue + position.ProductPrice * position.ProductAmount;
+            }
+
+            Facture facture = _factureDbContext.Factures.Where(facture => facture.FactureId == factureId).FirstOrDefault();
+            facture.Value = factureValue;
+            _factureDbContext.SaveChanges();
         }
     }
 }
