@@ -57,5 +57,29 @@ namespace CSupporter.Services.Factures.Repositories
 
             return false;
         }
+
+        public void CalculateFacturesValue()
+        { 
+            List<Facture> factures = _factureDbContext.Factures.ToList();
+            foreach (Facture facture in factures)
+            {
+                CalculateFactureValue(facture.FactureId);
+            }
+        }
+
+        private void CalculateFactureValue(int factureId)
+        {
+            double factureValue = 0;
+            List<Position> positions = _factureDbContext.Positions.Where(position => position.FactureId == factureId).ToList();
+
+            foreach (Position position in positions)
+            {
+                factureValue = factureValue + position.ProductPrice * position.ProductAmount;
+            }
+
+            Facture facture = _factureDbContext.Factures.Where(facture => facture.FactureId == factureId).FirstOrDefault();
+            facture.Value = factureValue;
+            _factureDbContext.SaveChanges();
+        }
     }
 }

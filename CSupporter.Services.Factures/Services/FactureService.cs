@@ -43,5 +43,10 @@ namespace CSupporter.Services.Factures.Services
         {
             return _factureRepository.DeleteFacture(factureId);
         }
+
+        public void CalculateFacturesValue()
+        {
+            _factureRepository.CalculateFacturesValue();
+        }
     }
 }

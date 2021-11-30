@@ -92,6 +92,15 @@ namespace CSupporter.Services.Factures.Controllers
             return Created($"api/Facture/{createdFactureDto.FactureId}", null);
         }
 
+        [HttpPost]
+        [Route("CalculateFacturesValue")]
+        [ActionName("CalculateFacturesValue")]
+        public ActionResult<FactureDto> CalculateFacturesValue()
+        {
+            _factureService.CalculateFacturesValue();
+            return Ok();
+        }
+
         [HttpDelete]
         [Route("{factureId}")]
         [ActionName("DeleteFacture")]
@@ -104,21 +113,5 @@ namespace CSupporter.Services.Factures.Controllers
 
             return Ok();
         }
-
-/*        [HttpGet]
-        [Route("{contractorId}")]
-        [ActionName("GetContractorForFacture")]
-        public async Task<ActionResult<ContractorDto>> GetContractorForFacture(int contractorId)
-        {
-            ContractorDto contractorDto = new ContractorDto();
-            var response = await _contractorAPIService.GetContractorByIdAsync<ContractorDto>(contractorId);
-
-            if (response != null)
-            {
-                contractorDto = JsonConvert.DeserializeObject<ContractorDto>(Convert.ToString(response));
-            }
-
-            return contractorDto;
-        }*/
     }
 }
