@@ -5,6 +5,6 @@ namespace CSupporter.Services.Factures.Services.IServices
 {
     public interface IContractorAPIService
     {
-        Task<T> GetAllContractorAsync<T>(ContractorDto contractorDto)
+        Task<T> GetAllContractorAsync<T>(ContractorDto contractorDto);
     }
 }

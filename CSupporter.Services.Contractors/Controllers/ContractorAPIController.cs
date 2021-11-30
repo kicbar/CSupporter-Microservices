@@ -6,12 +6,12 @@ using System.Collections.Generic;
 namespace CSupporter.Services.Contractors.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class ContractorController : Controller
+    [Route("api/contractor")]
+    public class ContractorAPIController : Controller
     {
         private readonly IContractorService _contractorService;
 
-        public ContractorController(IContractorService contractorService)
+        public ContractorAPIController(IContractorService contractorService)
         {
             _contractorService = contractorService;
         }

@@ -6,12 +6,12 @@ using System.Collections.Generic;
 namespace CSupporter.Services.Factures.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class FactureController : Controller
+    [Route("api/facture")]
+    public class FactureAPIController : Controller
     {
         private readonly IFactureService _factureService;
 
-        public FactureController(IFactureService factureService)
+        public FactureAPIController(IFactureService factureService)
         {
             _factureService = factureService;
         }
