@@ -15,12 +15,21 @@ namespace CSupporter.Services.Factures.Services
             _clientFactory = clientFactory;
         }
 
-        public async Task<string> GetAllContractorAsync<T>()
+        public async Task<string> GetAllContractorsAsync<T>()
         {
             return await this.SendAsync<T>(new RequestAPI()
             {
                 ApiType = SD.ApiType.GET,
-                Url = SD.ContractorsAPI + "api/Contractor"
+                Url = SD.ContractorsAPI + "api/contractor"
+            });
+        }
+
+        public async Task<string> GetContractorByIdAsync<T>(int contractorId)
+        {
+            return await this.SendAsync<T>(new RequestAPI()
+            {
+                ApiType = SD.ApiType.GET,
+                Url = SD.ContractorsAPI + "api/contractor/" + contractorId
             });
         }
     }
