@@ -32,5 +32,12 @@ namespace CSupporter.Services.Factures.Controllers
             return Ok(_positionService.AddPositionToFacture(positionDto, factureId));
         }
 
+        [HttpDelete]
+        [Route("factureId")]
+        [ActionName("RemovePositionFromFacture")]
+        public ActionResult<PositionDto> RemovePositionFromFacture(int positionId)
+        {
+            return Ok(_positionService.RemovePositionFromFacture(positionId));
+        }
     }
 }

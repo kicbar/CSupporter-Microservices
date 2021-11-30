@@ -29,12 +29,26 @@ namespace CSupporter.Services.Factures.Repositories
             return position;
         }
 
-        public bool DeletePositionFromFacture(int positionId)
+        public bool RemovePositionFromFacture(int positionId)
         {
-            //calculate facture value always during adding or deleting position
-            throw new NotImplementedException();
-        }
+            try
+            {
+                Position position = _factureDbContext.Positions.Where(position => position.PositionId == positionId).FirstOrDefault();
 
+                if (position != null)
+                {
+                    _factureDbContext.Remove(position);
+                    CalculateFactureValue(position.FactureId);
+                    _factureDbContext.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         private void CalculateFactureValue(int factureId)
         {

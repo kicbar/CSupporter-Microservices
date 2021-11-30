@@ -3,7 +3,6 @@ using CSupporter.Services.Factures.Models;
 using CSupporter.Services.Factures.Models.Dtos;
 using CSupporter.Services.Factures.Repositories.IRepositories;
 using CSupporter.Services.Factures.Services.IServices;
-using System;
 using System.Collections.Generic;
 
 namespace CSupporter.Services.Factures.Services
@@ -33,9 +32,9 @@ namespace CSupporter.Services.Factures.Services
             return positionDto;
         }
 
-        public bool DeletePositionFromFacture(int positionId)
+        public bool RemovePositionFromFacture(int positionId)
         {
-            throw new NotImplementedException();
+            return _positionRepository.RemovePositionFromFacture(positionId);
         }
     }
 }

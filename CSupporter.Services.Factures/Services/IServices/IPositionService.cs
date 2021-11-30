@@ -1,5 +1,4 @@
-﻿using CSupporter.Services.Factures.Models;
-using CSupporter.Services.Factures.Models.Dtos;
+﻿using CSupporter.Services.Factures.Models.Dtos;
 using System.Collections.Generic;
 
 namespace CSupporter.Services.Factures.Services.IServices
@@ -8,6 +7,6 @@ namespace CSupporter.Services.Factures.Services.IServices
     {
         List<PositionDto> GetAllPositionsForFacture(int factureId);
         PositionDto AddPositionToFacture(PositionDto positionDto, int factureId);
-        bool DeletePositionFromFacture(int positionId);
+        bool RemovePositionFromFacture(int positionId);
     }
 }

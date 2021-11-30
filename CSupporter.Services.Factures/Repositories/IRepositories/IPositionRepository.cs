@@ -7,6 +7,6 @@ namespace CSupporter.Services.Factures.Repositories.IRepositories
     {
         List<Position> GetAllPositionsForFacture(int factureId);
         Position AddPositionToFacture(Position position);
-        bool DeletePositionFromFacture(int positionId);
+        bool RemovePositionFromFacture(int positionId);
     }
 }
