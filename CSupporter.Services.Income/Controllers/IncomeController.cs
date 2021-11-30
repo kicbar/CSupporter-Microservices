@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CSupporter.Services.Income.Controllers
@@ -14,10 +13,12 @@ namespace CSupporter.Services.Income.Controllers
     public class IncomeController : Controller
     {
         private readonly IFactureAPIService _factureAPIService;
+        private readonly IIncomeCalculateService _incomeCalculateService;
 
-        public IncomeController(IFactureAPIService factureAPIService)
+        public IncomeController(IFactureAPIService factureAPIService, IIncomeCalculateService incomeCalculateService)
         {
             _factureAPIService = factureAPIService;
+            _incomeCalculateService = incomeCalculateService;
         }
 
         [HttpGet]
@@ -31,6 +32,7 @@ namespace CSupporter.Services.Income.Controllers
             if (response != null)
             {
                 List<FactureDto> factureDtos = JsonConvert.DeserializeObject<List<FactureDto>>(Convert.ToString(response));
+                calculatedIncome = _incomeCalculateService.CalculateExecutor(factureDtos);
             }
 
             return Ok(calculatedIncome);

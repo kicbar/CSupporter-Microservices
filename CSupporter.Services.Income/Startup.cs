@@ -24,7 +24,7 @@ namespace CSupporter.Services.Income
             services.AddHttpClient<IFactureAPIService, FactureAPIService>();
 
             services.AddScoped<IFactureAPIService, FactureAPIService>();
-            services.AddTransient<IIncomeCalculateService, IncomeCalculateService>();
+            services.AddScoped<IIncomeCalculateService, IncomeCalculateService>();
 
             SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
 

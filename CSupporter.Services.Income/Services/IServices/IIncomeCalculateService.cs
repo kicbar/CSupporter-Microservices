@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CSupporter.Services.Income.Models.Dtos;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Income.Services.IServices
 {
     public interface IIncomeCalculateService
     {
+        double CalculateExecutor(List<FactureDto> factureDtos);
     }
 }
