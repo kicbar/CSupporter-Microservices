@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSupporter.Services.Factures.Migrations
 {
     [DbContext(typeof(FactureDbContext))]
-    [Migration("20211130200649_RebuildDB")]
+    [Migration("20211130221557_RebuildDB")]
     partial class RebuildDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,11 @@ namespace CSupporter.Services.Factures.Migrations
                     b.Property<string>("FactureNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FactureType")
+                        .IsRequired()
+                        .HasMaxLength(7)
+                        .HasColumnType("nvarchar(7)");
 
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");

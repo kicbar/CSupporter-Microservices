@@ -36,6 +36,11 @@ namespace CSupporter.Services.Factures.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FactureType")
+                        .IsRequired()
+                        .HasMaxLength(7)
+                        .HasColumnType("nvarchar(7)");
+
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 

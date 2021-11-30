@@ -7,6 +7,7 @@ namespace CSupporter.Services.Factures.Models.Dtos
     {
         public int FactureId { get; set; }
         public string FactureNo { get; set; }
+        public string FactureType { get; set; }
         public DateTime FactureDate { get; set; }
         public double FactureValue { get; set; }
         public string ContractorFirstName { get; set; }

@@ -30,6 +30,7 @@ namespace CSupporter.Services.Factures.Data
                 new Facture
                 {
                     FactureNo = "FV13/11/2021",
+                    FactureType = "INCOME",
                     ContractorId = 1,
                     Positions = new List<Position>
                     {
@@ -50,6 +51,7 @@ namespace CSupporter.Services.Factures.Data
                 new Facture
                 {
                     FactureNo = "FV12/11/2021",
+                    FactureType = "INCOME",
                     ContractorId = 2,
                     Positions = new List<Position>
                     {
@@ -70,6 +72,7 @@ namespace CSupporter.Services.Factures.Data
                 new Facture
                 {
                     FactureNo = "FV22/11/2021",
+                    FactureType = "OUTCOME",
                     ContractorId = 2,
                     Positions = new List<Position>
                     {

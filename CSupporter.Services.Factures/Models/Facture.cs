@@ -11,6 +11,9 @@ namespace CSupporter.Services.Factures.Models
         [Required]
         public string FactureNo { get; set; }
         [Required]
+        [StringLength(7)]
+        public string FactureType { get; set; } = "OUTCOME";
+        [Required]
         public DateTime FactureDate { get; set; } = DateTime.Now;
         [Range(1, 1000)]
         public double Value { get; set; }

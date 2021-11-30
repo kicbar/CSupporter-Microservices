@@ -14,6 +14,7 @@ namespace CSupporter.Services.Factures.Migrations
                     FactureId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FactureNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FactureType = table.Column<string>(type: "nvarchar(7)", maxLength: 7, nullable: false),
                     FactureDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Value = table.Column<double>(type: "float", nullable: false),
                     ContractorId = table.Column<int>(type: "int", nullable: false),

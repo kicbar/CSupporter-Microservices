@@ -54,6 +54,7 @@ namespace CSupporter.Services.Factures.Controllers
             { 
                 entireFactureDto.FactureId = factureDto.FactureId;
                 entireFactureDto.FactureNo = factureDto.FactureNo;
+                entireFactureDto.FactureType = factureDto.FactureType;
                 entireFactureDto.FactureDate = factureDto.FactureDate;
                 entireFactureDto.FactureValue = factureDto.Value;
                 var response = await _contractorAPIService.GetContractorByIdAsync<ContractorDto>(factureDto.ContractorId);
