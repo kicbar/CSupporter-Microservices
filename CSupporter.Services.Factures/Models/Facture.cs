@@ -16,8 +16,9 @@ namespace CSupporter.Services.Factures.Models
         public double Value { get; set; }
         [Required]
         public int ContractorId { get; set; }
-        public virtual List<Position> Positions { get; set; }
         public DateTime InsertDate { get; set; } = DateTime.Now;
         public DateTime UpdateDate { get; set; } = DateTime.Now;
+
+        public virtual List<Position> Positions { get; set; }
     }
 }

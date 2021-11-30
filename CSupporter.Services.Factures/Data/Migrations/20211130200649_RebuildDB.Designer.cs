@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSupporter.Services.Factures.Migrations
 {
     [DbContext(typeof(FactureDbContext))]
-    [Migration("20211130194014_RebuildDB")]
+    [Migration("20211130200649_RebuildDB")]
     partial class RebuildDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

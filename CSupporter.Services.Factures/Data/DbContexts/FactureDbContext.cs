@@ -20,8 +20,6 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                         .HasMany(facture => facture.Positions)
                         .WithOne(position => position.Facture);
 
-            base.OnModelCreating(modelBuilder);
-
 /*            modelBuilder.Entity<Facture>().HasData(new Facture
             {
                 FactureId = 1,

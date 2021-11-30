@@ -1,4 +1,5 @@
 using AutoMapper;
+using CSupporter.Services.Factures.Data;
 using CSupporter.Services.Factures.Data.DbContexts;
 using CSupporter.Services.Factures.Mappings;
 using CSupporter.Services.Factures.Models;
@@ -32,7 +33,9 @@ namespace CSupporter.Services.Factures
 
             services.AddDbContext<FactureDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+
+            services.AddScoped<FacturesSeeder>();
+
             services.AddScoped<IFactureService, FactureService>();
             services.AddTransient<IFactureRepository, FactureRepository>();
 
@@ -51,7 +54,7 @@ namespace CSupporter.Services.Factures
             });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, FacturesSeeder facturesSeeder)
         {
             if (env.IsDevelopment())
             {
@@ -70,6 +73,8 @@ namespace CSupporter.Services.Factures
             {
                 endpoints.MapControllers();
             });
+
+            facturesSeeder.Seed();
         }
     }
 }
