@@ -50,13 +50,20 @@ namespace CSupporter.Services.Factures.Controllers
             FactureDto factureDto = _factureService.GetFactureById(factureId);
             if (factureDto != null)
             { 
-                entireFactureDto.FactureDetails = factureDto;
+                entireFactureDto.FactureId = factureDto.FactureId;
+                entireFactureDto.FactureNo = factureDto.FactureNo;
+                entireFactureDto.FactureDate = factureDto.FactureDate;
+                entireFactureDto.FactureValue = factureDto.Value;
                 var response = await _contractorAPIService.GetContractorByIdAsync<ContractorDto>(factureDto.ContractorId);
 
                 if (response != null)
                 {
                     ContractorDto contractorDto = JsonConvert.DeserializeObject<ContractorDto>(Convert.ToString(response));
-                    entireFactureDto.ContractorDetails = contractorDto;
+                    entireFactureDto.ContractorFirstName = contractorDto.FirstName;
+                    entireFactureDto.ContractorLastName= contractorDto.LastName;
+                    entireFactureDto.ContractorCompanyName = contractorDto.CompanyName;
+                    entireFactureDto.ContractorAddress = contractorDto.Address;
+                    entireFactureDto.ContractorNIP = contractorDto.NIP;
                 }
                 else
                     return NotFound();

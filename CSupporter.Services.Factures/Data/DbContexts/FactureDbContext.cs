@@ -41,7 +41,7 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                 ContractorId = 1
             });
 
-            modelBuilder.Entity<Position>().HasData(new Position
+/*            modelBuilder.Entity<Position>().HasData(new Position
             {
                 PositionId = 1,
                 ProductName = "Smartphone Xiaomi",
@@ -71,7 +71,7 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                 ProductName = "Headphone IPhone",
                 ProductAmount = 1,
                 ProductPrice = 100
-            });
+            });*/
         }
     }
 }
