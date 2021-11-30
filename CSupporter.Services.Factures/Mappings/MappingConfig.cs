@@ -11,6 +11,7 @@ namespace CSupporter.Services.Factures.Mappings
             var mappingConfig = new MapperConfiguration(config =>
             {
                 config.CreateMap<FactureDto, Facture>().ReverseMap();
+                config.CreateMap<PositionDto, Position>().ReverseMap();
             });
 
             return mappingConfig;

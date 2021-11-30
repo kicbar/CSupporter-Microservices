@@ -37,7 +37,9 @@ namespace CSupporter.Services.Factures
             services.AddScoped<FacturesSeeder>();
 
             services.AddScoped<IFactureService, FactureService>();
+            services.AddScoped<IPositionService, PositionService>();
             services.AddTransient<IFactureRepository, FactureRepository>();
+            services.AddTransient<IPositionRepository, PositionRepository>();
 
             services.AddScoped<IContractorAPIService, ContractorAPIService>();
 
