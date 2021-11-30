@@ -1,7 +1,10 @@
 ﻿using CSupporter.Services.Factures.Models.Dtos;
 using CSupporter.Services.Factures.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CSupporter.Services.Factures.Controllers
 {
@@ -9,10 +12,12 @@ namespace CSupporter.Services.Factures.Controllers
     [Route("api/facture")]
     public class FactureAPIController : Controller
     {
+        private readonly IContractorAPIService _contractorAPIService;
         private readonly IFactureService _factureService;
 
-        public FactureAPIController(IFactureService factureService)
+        public FactureAPIController(IFactureService factureService, IContractorAPIService contractorAPIService)
         {
+            _contractorAPIService = contractorAPIService;
             _factureService = factureService;
         }
 
@@ -59,6 +64,22 @@ namespace CSupporter.Services.Factures.Controllers
                 return BadRequest();
 
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("{contractorId}")]
+        [ActionName("GetContractorForFacture")]
+        public async Task<ActionResult<ContractorDto>> GetContractorForFacture(int contractorId)
+        {
+            ContractorDto contractorDto = new ContractorDto();
+            var response = await _contractorAPIService.GetContractorByIdAsync<ContractorDto>(contractorId);
+
+            if (response != null)
+            {
+                contractorDto = JsonConvert.DeserializeObject<ContractorDto>(Convert.ToString(response));
+            }
+
+            return contractorDto;
         }
     }
 }
