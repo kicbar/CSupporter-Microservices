@@ -5,6 +5,7 @@ namespace CSupporter.Services.Income.Models
 {
     public class IncomeCalculation
     {
+        [Key]
         public int CalculateId { get; set; }
         [Required]
         public double CalculateValue { get; set; }

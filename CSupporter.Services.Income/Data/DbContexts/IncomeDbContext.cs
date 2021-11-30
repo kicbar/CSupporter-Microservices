@@ -11,10 +11,10 @@ namespace CSupporter.Services.Income.Data.DbContexts
         }
 
         public DbSet<IncomeCalculation> IncomeCalculations { get; set; }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
