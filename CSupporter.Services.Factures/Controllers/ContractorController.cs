@@ -20,21 +20,6 @@ namespace CSupporter.Services.Factures.Controllers
         }
 
         [HttpGet]
-        [ActionName("GetAllContractorsForFactures")]
-        public async Task<ActionResult<List<ContractorDto>>> GetAllContractorsForFactures()
-        {
-            List<ContractorDto> contractorDtos = new List<ContractorDto>();
-            var response = await _contractorService.GetAllContractorsAsync<ContractorDto>();
-
-            if (response != null)
-            {
-                contractorDtos = JsonConvert.DeserializeObject<List<ContractorDto>>(Convert.ToString(response));
-            }
-
-            return contractorDtos;
-        }
-
-        [HttpGet]
         [Route("{contractorId}")]
         [ActionName("GetContractorForFacture")]
         public async Task<ActionResult<ContractorDto>> GetContractorForFacture(int contractorId)
