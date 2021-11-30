@@ -1,4 +1,5 @@
 ﻿using CSupporter.Services.Factures.Models;
+using CSupporter.Services.Factures.Models.Dtos;
 using CSupporter.Services.Factures.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -23,5 +24,13 @@ namespace CSupporter.Services.Factures.Controllers
         {
             return Ok(_positionService.GetAllPositionsForFacture(factureId));
         }
+
+        [HttpPost]
+        [ActionName("CreatePositionForFacture")]
+        public ActionResult<PositionDto> CreatePositionForFacture([FromBody] PositionDto positionDto, int factureId)
+        {
+            return Ok(_positionService.AddPositionToFacture(positionDto, factureId));
+        }
+
     }
 }

@@ -24,7 +24,9 @@ namespace CSupporter.Services.Factures.Repositories
         public Position AddPositionToFacture(Position position)
         {
             //calculate facture value always during adding or deleting position
-            throw new NotImplementedException();
+            _factureDbContext.Add(position);
+            _factureDbContext.SaveChanges();
+            return position;
         }
 
         public bool DeletePositionFromFacture(int positionId)

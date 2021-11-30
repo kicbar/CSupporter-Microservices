@@ -13,7 +13,6 @@ namespace CSupporter.Services.Factures.Models
         [Required]
         public double ProductPrice { get; set; }
 
-
         public virtual Facture Facture { get; set; }
         public int FactureId { get; set; }
     }

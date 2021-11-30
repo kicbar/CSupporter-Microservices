@@ -19,19 +19,23 @@ namespace CSupporter.Services.Factures.Services
             _positionRepository = positionRepository;
         }
 
-        public PositionDto AddPositionToFacture(Position position)
+        public List<PositionDto> GetAllPositionsForFacture(int factureId)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<List<PositionDto>>(_positionRepository.GetAllPositionsForFacture(factureId));
+        }
+
+        public PositionDto AddPositionToFacture(PositionDto positionDto, int factureId)
+        {
+            Position position = _mapper.Map<Position>(positionDto);
+            position.FactureId = factureId;
+            _positionRepository.AddPositionToFacture(position);
+
+            return positionDto;
         }
 
         public bool DeletePositionFromFacture(int positionId)
         {
             throw new NotImplementedException();
-        }
-
-        public List<PositionDto> GetAllPositionsForFacture(int factureId)
-        {
-            return _mapper.Map<List<PositionDto>>(_positionRepository.GetAllPositionsForFacture(factureId));
         }
     }
 }
