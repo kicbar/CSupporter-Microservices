@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CSupporter.Services.Factures.Migrations
 {
-    public partial class CreateNewDb : Migration
+    public partial class RebuildDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

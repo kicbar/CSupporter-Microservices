@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CSupporter.Services.Factures.Models
 {
@@ -14,8 +13,8 @@ namespace CSupporter.Services.Factures.Models
         [Required]
         public double ProductPrice { get; set; }
 
-        public int FactureId { get; set; }
-        [ForeignKey("FactureId")]
+
         public virtual Facture Facture { get; set; }
+        public int FactureId { get; set; }
     }
 }
