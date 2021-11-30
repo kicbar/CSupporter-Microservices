@@ -18,6 +18,7 @@ namespace CSupporter.Services.Factures.Repositories
 
         public List<Position> GetAllPositionsForFacture(int factureId)
         {
+            CalculateFactureValue(factureId);
             return _factureDbContext.Positions.Where(position => position.FactureId == factureId).ToList();
         }
 
