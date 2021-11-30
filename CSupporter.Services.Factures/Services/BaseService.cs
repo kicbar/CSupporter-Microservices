@@ -1,9 +1,7 @@
 ﻿using CSupporter.Services.Factures.Models;
-using CSupporter.Services.Factures.Models.Dtos;
 using CSupporter.Services.Factures.Services.IServices;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +10,10 @@ namespace CSupporter.Services.Factures.Services
 {
     public class BaseService : IBaseService
     {
-        public ResponseDto responseModel { get; set; }
         public IHttpClientFactory httpClient;
 
         public BaseService(IHttpClientFactory httpClient)
         {
-            this.responseModel = new ResponseDto();
             this.httpClient = httpClient;
         }
 
