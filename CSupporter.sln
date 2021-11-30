@@ -7,19 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{AF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{CA5C9638-B67D-4436-AFA7-8B4CBF57CC56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Contractors", "CSupporter.Services.Contractors\CSupporter.Services.Contractors.csproj", "{75700304-E30A-474A-AB9F-0240A88AFAAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSupporter.Services.Contractors", "CSupporter.Services.Contractors\CSupporter.Services.Contractors.csproj", "{75700304-E30A-474A-AB9F-0240A88AFAAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Factures", "CSupporter.Services.Factures\CSupporter.Services.Factures.csproj", "{E8600C87-1A89-4403-BC41-D46D8312280E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSupporter.Services.Factures", "CSupporter.Services.Factures\CSupporter.Services.Factures.csproj", "{E8600C87-1A89-4403-BC41-D46D8312280E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Products", "CSupporter.Services.Products\CSupporter.Services.Products.csproj", "{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSupporter.Services.Products", "CSupporter.Services.Products\CSupporter.Services.Products.csproj", "{F4DBA5D9-FD4A-4DEB-B2E1-4DC09654532E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.Services.Income", "CSupporter.Services.Income\CSupporter.Services.Income.csproj", "{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSupporter.Services.Income", "CSupporter.Services.Income\CSupporter.Services.Income.csproj", "{D9BBB277-0045-4FFD-A10E-9B787CB5EAB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.View", "CSupporter.View\CSupporter.View.csproj", "{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSupporter.View", "CSupporter.View\CSupporter.View.csproj", "{EE9F7C21-41F0-43D6-A33B-A9F50E8AB537}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{0E77281D-2444-4DB9-AA9C-E1FFA571DAF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSupporter.MessageBus", "CSupporter.MessageBus\CSupporter.MessageBus.csproj", "{1BDABF78-7041-44B7-A829-18EB1BC8EC46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSupporter.MessageBus", "CSupporter.MessageBus\CSupporter.MessageBus.csproj", "{1BDABF78-7041-44B7-A829-18EB1BC8EC46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

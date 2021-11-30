@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CSupporter.Services.Income.Services
 {
-    public class FactureAPIService : BaseService,IFactureAPIService
+    public class FactureAPIService : BaseService, IFactureAPIService
     {
         private readonly IHttpClientFactory _clientFactory;
 
