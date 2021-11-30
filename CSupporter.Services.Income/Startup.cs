@@ -1,8 +1,10 @@
+using CSupporter.Services.Income.Data.DbContexts;
 using CSupporter.Services.Income.Models;
 using CSupporter.Services.Income.Services;
 using CSupporter.Services.Income.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +29,10 @@ namespace CSupporter.Services.Income
             services.AddScoped<IIncomeCalculateService, IncomeCalculateService>();
 
             SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
+
+
+            services.AddDbContext<IncomeDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
