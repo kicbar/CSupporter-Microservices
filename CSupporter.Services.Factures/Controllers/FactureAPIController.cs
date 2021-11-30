@@ -41,6 +41,32 @@ namespace CSupporter.Services.Factures.Controllers
             return Ok(factureDto);
         }
 
+        [HttpGet]
+        [Route("details/{factureId}")]
+        [ActionName("GetFactureDetails")]
+        public async Task<ActionResult<EntireFactureDto>> GetFactureDetails(int factureId)
+        {
+            EntireFactureDto entireFactureDto = new EntireFactureDto();
+            FactureDto factureDto = _factureService.GetFactureById(factureId);
+            if (factureDto != null)
+            { 
+                entireFactureDto.FactureDetails = factureDto;
+                var response = await _contractorAPIService.GetContractorByIdAsync<ContractorDto>(factureDto.ContractorId);
+
+                if (response != null)
+                {
+                    ContractorDto contractorDto = JsonConvert.DeserializeObject<ContractorDto>(Convert.ToString(response));
+                    entireFactureDto.ContractorDetails = contractorDto;
+                }
+                else
+                    return NotFound();
+            }
+            else
+                return NotFound();
+
+            return entireFactureDto;
+        }
+
         [HttpPost]
         [ActionName("CreateUpdateFacture")]
         public ActionResult<FactureDto> CreateUpdateFacture(FactureDto factureDto)
@@ -66,7 +92,7 @@ namespace CSupporter.Services.Factures.Controllers
             return Ok();
         }
 
-        [HttpGet]
+/*        [HttpGet]
         [Route("{contractorId}")]
         [ActionName("GetContractorForFacture")]
         public async Task<ActionResult<ContractorDto>> GetContractorForFacture(int contractorId)
@@ -80,6 +106,6 @@ namespace CSupporter.Services.Factures.Controllers
             }
 
             return contractorDto;
-        }
+        }*/
     }
 }
