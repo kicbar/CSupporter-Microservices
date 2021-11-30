@@ -48,38 +48,49 @@ namespace CSupporter.Services.Factures.Migrations
                     b.HasKey("FactureId");
 
                     b.ToTable("Factures");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            FactureId = 1,
-                            ContractorId = 1,
-                            FactureDate = new DateTime(2021, 11, 28, 21, 15, 37, 946, DateTimeKind.Local).AddTicks(5739),
-                            FactureNo = "FV11/11/2021",
-                            InsertDate = new DateTime(2021, 11, 28, 21, 15, 37, 954, DateTimeKind.Local).AddTicks(8120),
-                            UpdateDate = new DateTime(2021, 11, 28, 21, 15, 37, 954, DateTimeKind.Local).AddTicks(8178),
-                            Value = 200.99000000000001
-                        },
-                        new
-                        {
-                            FactureId = 2,
-                            ContractorId = 1,
-                            FactureDate = new DateTime(2021, 11, 28, 21, 15, 37, 958, DateTimeKind.Local).AddTicks(7729),
-                            FactureNo = "FV12/11/2021",
-                            InsertDate = new DateTime(2021, 11, 28, 21, 15, 37, 958, DateTimeKind.Local).AddTicks(7786),
-                            UpdateDate = new DateTime(2021, 11, 28, 21, 15, 37, 958, DateTimeKind.Local).AddTicks(7792),
-                            Value = 99.989999999999995
-                        },
-                        new
-                        {
-                            FactureId = 3,
-                            ContractorId = 1,
-                            FactureDate = new DateTime(2021, 11, 28, 21, 15, 37, 958, DateTimeKind.Local).AddTicks(7971),
-                            FactureNo = "FV13/11/2021",
-                            InsertDate = new DateTime(2021, 11, 28, 21, 15, 37, 958, DateTimeKind.Local).AddTicks(7979),
-                            UpdateDate = new DateTime(2021, 11, 28, 21, 15, 37, 958, DateTimeKind.Local).AddTicks(7983),
-                            Value = 22.989999999999998
-                        });
+            modelBuilder.Entity("CSupporter.Services.Factures.Models.Position", b =>
+                {
+                    b.Property<int>("PositionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FactureId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductAmount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("ProductPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("PositionId");
+
+                    b.HasIndex("FactureId");
+
+                    b.ToTable("Positions");
+                });
+
+            modelBuilder.Entity("CSupporter.Services.Factures.Models.Position", b =>
+                {
+                    b.HasOne("CSupporter.Services.Factures.Models.Facture", "Facture")
+                        .WithMany("Positions")
+                        .HasForeignKey("FactureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Facture");
+                });
+
+            modelBuilder.Entity("CSupporter.Services.Factures.Models.Facture", b =>
+                {
+                    b.Navigation("Positions");
                 });
 #pragma warning restore 612, 618
         }

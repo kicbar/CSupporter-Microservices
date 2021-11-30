@@ -14,7 +14,7 @@ namespace CSupporter.Services.Factures.Data.DbContexts
         public DbSet<Facture> Factures { get; set; }
         public DbSet<Position> Positions { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+/*        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
@@ -31,7 +31,8 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                         PositionId = 1,
                         ProductName = "Smartphone Xiaomi",
                         ProductAmount = 1,
-                        ProductPrice = 999.99
+                        ProductPrice = 999.99,
+                        FactureId = 1
                     },
                     
                     new Position
@@ -39,7 +40,8 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                         PositionId = 1,
                         ProductName = "Smartphone IPhone",
                         ProductAmount = 1,
-                        ProductPrice = 2999.99
+                        ProductPrice = 2999.99,
+                        FactureId = 1
                     }
                 }
             });
@@ -57,7 +59,8 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                         PositionId = 1,
                         ProductName = "Smartphone Samsung",
                         ProductAmount = 1,
-                        ProductPrice = 999.99
+                        ProductPrice = 999.99,
+                        FactureId = 1
                     },
 
                     new Position
@@ -65,7 +68,8 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                         PositionId = 1,
                         ProductName = "Headphone",
                         ProductAmount = 1,
-                        ProductPrice = 100
+                        ProductPrice = 100,
+                        FactureId = 1
                     }
                 }
             });
@@ -83,7 +87,8 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                         PositionId = 1,
                         ProductName = "TV Samsung",
                         ProductAmount = 1,
-                        ProductPrice = 1200.20
+                        ProductPrice = 1200.20,
+                        FactureId = 1
                     },
 
                     new Position
@@ -91,10 +96,11 @@ namespace CSupporter.Services.Factures.Data.DbContexts
                         PositionId = 1,
                         ProductName = "Laptop Lenovo",
                         ProductAmount = 1,
-                        ProductPrice = 3500
+                        ProductPrice = 3500,
+                        FactureId = 1
                     }
                 }
             });
-        }
+        }*/
     }
 }
