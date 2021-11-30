@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CSupporter.Services.Factures.Models.Dtos
 {
@@ -13,5 +14,6 @@ namespace CSupporter.Services.Factures.Models.Dtos
         public string ContractorAddress { get; set; }
         public string ContractorCompanyName { get; set; }
         public string ContractorNIP { get; set; }
+        public List<PositionDto> Positions { get; set; }
     }
 }

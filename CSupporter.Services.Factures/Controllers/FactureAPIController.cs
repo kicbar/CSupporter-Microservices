@@ -13,11 +13,13 @@ namespace CSupporter.Services.Factures.Controllers
     public class FactureAPIController : Controller
     {
         private readonly IContractorAPIService _contractorAPIService;
+        private readonly IPositionService _positionService;
         private readonly IFactureService _factureService;
 
-        public FactureAPIController(IFactureService factureService, IContractorAPIService contractorAPIService)
+        public FactureAPIController(IFactureService factureService, IContractorAPIService contractorAPIService, IPositionService positionService)
         {
             _contractorAPIService = contractorAPIService;
+            _positionService = positionService;
             _factureService = factureService;
         }
 
@@ -67,6 +69,9 @@ namespace CSupporter.Services.Factures.Controllers
                 }
                 else
                     return NotFound();
+
+                List<PositionDto> positionDtos = _positionService.GetAllPositionsForFacture(factureId);
+                entireFactureDto.Positions = positionDtos;
             }
             else
                 return NotFound();
