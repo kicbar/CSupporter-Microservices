@@ -8,6 +8,6 @@ namespace CSupporter.Services.Factures.Services.IServices
     public interface IBaseService : IDisposable
     {
         ResponseDto responseModel { get; set; }
-        Task<T> SendAsync<T>(RequestAPI requestAPI);
+        Task<string> SendAsync<T>(RequestAPI requestAPI);
     }
 }

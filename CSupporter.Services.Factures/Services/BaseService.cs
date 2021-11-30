@@ -21,7 +21,7 @@ namespace CSupporter.Services.Factures.Services
             this.httpClient = httpClient;
         }
 
-        public async Task<T> SendAsync<T>(RequestAPI requestAPI)
+        public async Task<string> SendAsync<T>(RequestAPI requestAPI)
         {
             try
             {
@@ -55,21 +55,11 @@ namespace CSupporter.Services.Factures.Services
 
                 apiResponse = await client.SendAsync(message);
                 var apiContent = await apiResponse.Content.ReadAsStringAsync();
-                var apiResponseDto = JsonConvert.DeserializeObject<T>(apiContent);
-                return apiResponseDto;
+                return apiContent;
             }
             catch (Exception exc)
             {
-                var dto = new ResponseDto
-                {
-                    DisplayMessage = "Error",
-                    ErrorMessage = new List<string> { Convert.ToString(exc.Message) },
-                    IsSuccess = false,
-                };
-
-                var res = JsonConvert.SerializeObject(dto);
-                var apiResponseDto = JsonConvert.DeserializeObject<T>(res);
-                return apiResponseDto;
+                return exc.Message;
             }
         }
 
