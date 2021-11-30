@@ -1,16 +1,12 @@
+using CSupporter.Services.Income.Models;
+using CSupporter.Services.Income.Services;
+using CSupporter.Services.Income.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Income
 {
@@ -23,9 +19,14 @@ namespace CSupporter.Services.Income
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient<IFactureAPIService, FactureAPIService>();
+
+            services.AddScoped<IFactureAPIService, FactureAPIService>();
+            services.AddTransient<IIncomeCalculateService, IncomeCalculateService>();
+
+            SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -34,7 +35,6 @@ namespace CSupporter.Services.Income
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
