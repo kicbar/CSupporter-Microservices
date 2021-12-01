@@ -5,6 +5,6 @@ namespace CSupporter.Services.Income.Services.IServices
 {
     public interface IIncomeCalculateService
     {
-        double CalculateExecutor(List<FactureDto> factureDtos);
+        double CalculateExecutor();
     }
 }
