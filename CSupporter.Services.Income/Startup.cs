@@ -1,5 +1,7 @@
 using CSupporter.Services.Income.Data.DbContexts;
 using CSupporter.Services.Income.Models;
+using CSupporter.Services.Income.Repositories;
+using CSupporter.Services.Income.Repositories.IRepositories;
 using CSupporter.Services.Income.Services;
 using CSupporter.Services.Income.Services.IServices;
 using Microsoft.AspNetCore.Builder;
@@ -27,6 +29,7 @@ namespace CSupporter.Services.Income
 
             services.AddScoped<IFactureAPIService, FactureAPIService>();
             services.AddScoped<IIncomeCalculateService, IncomeCalculateService>();
+            services.AddTransient<IIncomeRepository, IncomeRepository>();
 
             SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
 
