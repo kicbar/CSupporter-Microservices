@@ -3,6 +3,7 @@ using CSupporter.Services.Income.Models;
 using CSupporter.Services.Income.Repositories;
 using CSupporter.Services.Income.Repositories.IRepositories;
 using CSupporter.Services.Income.Services;
+using CSupporter.Services.Income.Services.HostedServices;
 using CSupporter.Services.Income.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,9 +31,9 @@ namespace CSupporter.Services.Income
             services.AddScoped<IFactureAPIService, FactureAPIService>();
             services.AddScoped<IIncomeCalculateService, IncomeCalculateService>();
             services.AddTransient<IIncomeRepository, IncomeRepository>();
+            services.AddHostedService<TimedHostedService>();
 
             SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
-
 
             services.AddDbContext<IncomeDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
