@@ -1,10 +1,9 @@
-﻿using CSupporter.Services.Income.Models.Dtos;
-using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 
 namespace CSupporter.Services.Income.Services.IServices
 {
     public interface IIncomeCalculateService
     {
-        double CalculateExecutor();
+        Task<double> CalculateExecutor();
     }
 }

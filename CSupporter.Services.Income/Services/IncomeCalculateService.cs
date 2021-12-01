@@ -46,7 +46,7 @@ namespace CSupporter.Services.Income.Services
             IncomeCalculation incomeCalculation = new IncomeCalculation() { CalculateValue = final };
             _incomeRepository.CreateIncomeCalculation(incomeCalculation);
 
-            return  Math.Round(final);
+            return Math.Round(final);
         }
     }
 }
