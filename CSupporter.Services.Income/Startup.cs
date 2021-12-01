@@ -26,17 +26,17 @@ namespace CSupporter.Services.Income
 
         public void ConfigureServices(IServiceCollection services)
         {
+                services.AddDbContext<IncomeDbContext>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddHttpClient<IFactureAPIService, FactureAPIService>();
 
             services.AddScoped<IFactureAPIService, FactureAPIService>();
-            services.AddScoped<IIncomeCalculateService, IncomeCalculateService>();
+            services.AddTransient<IIncomeCalculateService, IncomeCalculateService>();
             services.AddTransient<IIncomeRepository, IncomeRepository>();
             services.AddHostedService<TimedHostedService>();
 
             SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
-
-            services.AddDbContext<IncomeDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
