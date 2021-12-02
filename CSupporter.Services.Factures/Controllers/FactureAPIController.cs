@@ -89,7 +89,7 @@ namespace CSupporter.Services.Factures.Controllers
             if (factureDto == null)
                 return NotFound();
 
-            return Created($"api/Facture/{createdFactureDto.FactureId}", null);
+            return Created($"api/facture/{createdFactureDto.FactureId}", null);
         }
 
         [HttpPost]
