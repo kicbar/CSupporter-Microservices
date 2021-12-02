@@ -35,12 +35,12 @@ namespace CSupporter.Services.Products.Controllers
 
         [HttpPost]
         [ActionName("CreateProduct")]
-        public ActionResult<Product> CreateProduct([FromBody] Product product)
+        public ActionResult<Product> CreateProduct([FromBody] Product product, int? amount = null)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            Product createdProduct = _productRepository.AddProduct(product);
+            Product createdProduct = _productRepository.AddProduct(product, amount);
 
             return Created($"api/product/{createdProduct.ProductId}", null);
         }

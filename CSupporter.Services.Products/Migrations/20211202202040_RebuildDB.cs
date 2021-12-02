@@ -39,28 +39,16 @@ namespace CSupporter.Services.Products.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_WarehouseAmounts", x => x.WarehouseId);
-                    table.ForeignKey(
-                        name: "FK_WarehouseAmounts_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_WarehouseAmounts_ProductId",
-                table: "WarehouseAmounts",
-                column: "ProductId",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "WarehouseAmounts");
+                name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "WarehouseAmounts");
         }
     }
 }

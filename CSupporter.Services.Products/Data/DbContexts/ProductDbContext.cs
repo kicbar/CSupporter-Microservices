@@ -15,9 +15,7 @@ namespace CSupporter.Services.Products.Data.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>()
-                        .HasOne(product => product.WarehouseAmounts)
-                        .WithOne(warehouseAmounts => warehouseAmounts.Product);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

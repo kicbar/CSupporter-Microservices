@@ -25,9 +25,16 @@ namespace CSupporter.Services.Products.Repositories
             return _productDbContext.Products.Where(product => product.ProductId == productId).FirstOrDefault();
         }
 
-        public Product AddProduct(Product product)
+        public Product AddProduct(Product product, int? amount = null)
         {
             _productDbContext.Products.Add(product);
+            Warehouse warehouse = new Warehouse()
+            {
+                ProductId = product.ProductId,
+                Amount = (int)(amount != null ? amount : 1390123)
+            };
+
+            _productDbContext.Add(warehouse);
             _productDbContext.SaveChanges();
             return product;
         }

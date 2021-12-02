@@ -16,12 +16,17 @@ namespace CSupporter.Services.Products.Repositories
             _productDbContext = productDbContext;
         }
 
-        public bool CreateAmountForProduct(int productId, Warehouse warehouse)
+        public bool CreateAmountForProduct(int productId, int? amount)
         {
             Product productExist = _productDbContext.Products.Where(product => product.ProductId == productId).FirstOrDefault();
             if (productExist != null)
             {
-                warehouse.ProductId = productId;
+                Warehouse warehouse = new Warehouse()
+                {
+                    ProductId = productId,
+                    Amount = (int)(amount != null ? amount : 1)
+                };
+
                 _productDbContext.Add(warehouse);
                 _productDbContext.SaveChanges();
                 return true;

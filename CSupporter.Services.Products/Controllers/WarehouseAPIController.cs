@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSupporter.Services.Products.Controllers
 {
+  
     public class WarehouseAPIController : Controller
     {
         public IActionResult Index()

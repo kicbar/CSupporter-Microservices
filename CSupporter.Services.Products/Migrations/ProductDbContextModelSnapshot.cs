@@ -4,16 +4,14 @@ using CSupporter.Services.Products.Data.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CSupporter.Services.Products.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20211202195839_RebuildDB")]
-    partial class RebuildDB
+    partial class ProductDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,26 +71,7 @@ namespace CSupporter.Services.Products.Migrations
 
                     b.HasKey("WarehouseId");
 
-                    b.HasIndex("ProductId")
-                        .IsUnique();
-
                     b.ToTable("WarehouseAmounts");
-                });
-
-            modelBuilder.Entity("CSupporter.Services.Products.Models.Warehouse", b =>
-                {
-                    b.HasOne("CSupporter.Services.Products.Models.Product", "Product")
-                        .WithOne("WarehouseAmounts")
-                        .HasForeignKey("CSupporter.Services.Products.Models.Warehouse", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("CSupporter.Services.Products.Models.Product", b =>
-                {
-                    b.Navigation("WarehouseAmounts");
                 });
 #pragma warning restore 612, 618
         }

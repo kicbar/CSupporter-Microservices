@@ -7,7 +7,7 @@ namespace CSupporter.Services.Products.Repositories.IRepositories
     {
         List<Product> GetAllProducts();
         Product GetProductById(int productId);
-        Product AddProduct(Product product);
+        Product AddProduct(Product product, int? amount = null);
         Product UpdateProduct(Product product);
         bool RemoveProduct(int productId);
     }
