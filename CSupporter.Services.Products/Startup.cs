@@ -1,3 +1,7 @@
+using CSupporter.Services.Products.Repositories;
+using CSupporter.Services.Products.Repositories.IRepositories;
+using CSupporter.Services.Products.Services;
+using CSupporter.Services.Products.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,9 +27,10 @@ namespace CSupporter.Services.Products
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IProductService, ProductService>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -34,7 +39,6 @@ namespace CSupporter.Services.Products
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
