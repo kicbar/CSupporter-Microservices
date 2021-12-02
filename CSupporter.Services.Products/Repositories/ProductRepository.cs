@@ -46,7 +46,7 @@ namespace CSupporter.Services.Products.Repositories
 
         public bool RemoveProduct(int productId)
         {
-            Product productExist = _productDbContext.Products.Where(product => product.ProductId == product.ProductId).FirstOrDefault();
+            Product productExist = _productDbContext.Products.Where(product => product.ProductId == productId).FirstOrDefault();
 
             if (productExist != null)
             {

@@ -17,12 +17,14 @@ namespace CSupporter.Services.Products.Controllers
         }
 
         [HttpGet]
+        [ActionName("GetProducts")]
         public ActionResult<List<Product>> GetProducts()
         {
             return _productRepository.GetAllProducts();
         }
 
-        [HttpGet("{productId}")]
+        [HttpGet("productId")]
+        [ActionName("GetProduct")]
         public ActionResult<Product> GetProduct(int productId)
         {
             Product product = _productRepository.GetProductById(productId);
@@ -32,6 +34,7 @@ namespace CSupporter.Services.Products.Controllers
         }
 
         [HttpPost]
+        [ActionName("CreateProduct")]
         public ActionResult<Product> CreateProduct([FromBody] Product product)
         {
             if (!ModelState.IsValid)
@@ -42,7 +45,8 @@ namespace CSupporter.Services.Products.Controllers
             return Created($"api/product/{createdProduct.ProductId}", null);
         }
 
-        [HttpPut("{productId}")]
+        [HttpPut]
+        [ActionName("UpdateProduct")]
         public ActionResult<Product> UpdateProduct([FromBody] Product product)
         {
             if (!ModelState.IsValid)
@@ -53,7 +57,8 @@ namespace CSupporter.Services.Products.Controllers
             return Created($"api/product/{createdProduct.ProductId}", null);
         }
 
-        [HttpGet("{productId}")]
+        [HttpDelete("productId")]
+        [ActionName("RemoveProductById")]
         public ActionResult<bool> RemoveProductById(int productId)
         {
             return _productRepository.RemoveProduct(productId); ;
