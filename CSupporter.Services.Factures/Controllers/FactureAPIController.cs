@@ -113,5 +113,14 @@ namespace CSupporter.Services.Factures.Controllers
 
             return Ok();
         }
+
+        [HttpGet]
+        [Route("contractor/{contractorId}")]
+        [ActionName("FacturesForContractor")]
+        public ActionResult<string> FacturesForContractor(int contractorId)
+        {
+            return Ok($"Facture For Contractor {contractorId} Exist");
+        }
+
     }
 }

@@ -48,7 +48,7 @@ namespace CSupporter.Services.Products.Controllers
         }
 
         [HttpPut]
-        [Route("api/product/amount/{productId}/{changeAmount}")]
+        [Route("amount/{productId}/{changeAmount}")]
         [ActionName("UpdateAmountProduct")]
         public ActionResult<Product> UpdateAmountProduct(int productId, int changeAmount)
         {

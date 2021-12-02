@@ -2,6 +2,7 @@
 using CSupporter.Services.Contractors.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CSupporter.Services.Contractors.Controllers
 {
@@ -54,12 +55,12 @@ namespace CSupporter.Services.Contractors.Controllers
         [HttpDelete]
         [Route("{contractorId}")]
         [ActionName("DeleteContractor")]
-        public ActionResult DeleteContractor(int contractorId)
+        public async Task<ActionResult> DeleteContractorAsync(int contractorId)
         {
-            bool result = _contractorService.DeleteContractor(contractorId);
+            bool result = await _contractorService.DeleteContractorAsync(contractorId);
 
             if (!result)
-                return BadRequest();
+                return BadRequest("Contractor can not be remove, check exisitng facture!");
 
             return Ok();
         }

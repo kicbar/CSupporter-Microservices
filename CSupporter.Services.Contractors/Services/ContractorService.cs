@@ -4,17 +4,20 @@ using CSupporter.Services.Contractors.Models.Dtos;
 using CSupporter.Services.Contractors.Repositories.IRepositories;
 using CSupporter.Services.Contractors.Services.IServices;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CSupporter.Services.Contractors.Services
 {
     public class ContractorService : IContractorService
     {
         private readonly IMapper _mapper;
+        private readonly IFactureAPIService _factureAPIService;
         private readonly IContractorRepository _contractorRepository;
 
-        public ContractorService(IContractorRepository contractorRepository, IMapper mapper)
+        public ContractorService(IContractorRepository contractorRepository, IFactureAPIService factureAPIService, IMapper mapper)
         {
             _mapper = mapper;
+            _factureAPIService = factureAPIService;
             _contractorRepository = contractorRepository;
         }
 
@@ -37,9 +40,15 @@ namespace CSupporter.Services.Contractors.Services
             return _mapper.Map<ContractorDto>(_contractorRepository.CreateUpdateContractor(contractor));
         }
 
-        public bool DeleteContractor(int contractorId)
+        public async Task<bool> DeleteContractorAsync(int contractorId)
         {
             Contractor contractor = _contractorRepository.GetContractorById(contractorId);
+
+            string factureExist = await _factureAPIService.GetFactureForContractorAsync<string>(contractorId);
+
+/*            if (factureExist)
+                return false;*/
+
             bool resultOfRemove = _contractorRepository.DeleteContractor(contractor);
 
             return resultOfRemove;

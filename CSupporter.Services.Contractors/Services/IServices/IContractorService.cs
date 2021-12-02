@@ -1,5 +1,6 @@
 ﻿using CSupporter.Services.Contractors.Models.Dtos;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CSupporter.Services.Contractors.Services.IServices
 {
@@ -8,6 +9,6 @@ namespace CSupporter.Services.Contractors.Services.IServices
         List<ContractorDto> GetAllContractors();
         ContractorDto GetContractorById(int contractorId);
         ContractorDto CreateUpdateContractor(ContractorDto contractorDto);
-        bool DeleteContractor(int contractorId);
+        Task<bool> DeleteContractorAsync(int contractorId);
     }
 }

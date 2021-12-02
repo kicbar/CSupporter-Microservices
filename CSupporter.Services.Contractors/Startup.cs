@@ -36,7 +36,7 @@ namespace CSupporter.Services.Contractors
             services.AddTransient<IContractorRepository, ContractorRepository>();
             services.AddScoped<IFactureAPIService, FactureAPIService>();
 
-            SD.FacturesAPI = Configuration["ServiceUrls:ContractorsAPI"];
+            SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
 
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
