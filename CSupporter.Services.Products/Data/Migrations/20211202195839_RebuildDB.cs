@@ -8,7 +8,7 @@ namespace CSupporter.Services.Products.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Product",
+                name: "Products",
                 columns: table => new
                 {
                     ProductId = table.Column<int>(type: "int", nullable: false)
@@ -21,11 +21,11 @@ namespace CSupporter.Services.Products.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.ProductId);
+                    table.PrimaryKey("PK_Products", x => x.ProductId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Warehouse",
+                name: "WarehouseAmounts",
                 columns: table => new
                 {
                     WarehouseId = table.Column<int>(type: "int", nullable: false)
@@ -38,18 +38,18 @@ namespace CSupporter.Services.Products.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Warehouse", x => x.WarehouseId);
+                    table.PrimaryKey("PK_WarehouseAmounts", x => x.WarehouseId);
                     table.ForeignKey(
-                        name: "FK_Warehouse_Product_ProductId",
+                        name: "FK_WarehouseAmounts_Products_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Product",
+                        principalTable: "Products",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Warehouse_ProductId",
-                table: "Warehouse",
+                name: "IX_WarehouseAmounts_ProductId",
+                table: "WarehouseAmounts",
                 column: "ProductId",
                 unique: true);
         }
@@ -57,10 +57,10 @@ namespace CSupporter.Services.Products.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Warehouse");
+                name: "WarehouseAmounts");
 
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "Products");
         }
     }
 }

@@ -44,7 +44,7 @@ namespace CSupporter.Services.Products.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("CSupporter.Services.Products.Models.Warehouse", b =>
@@ -74,7 +74,7 @@ namespace CSupporter.Services.Products.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("Warehouse");
+                    b.ToTable("WarehouseAmounts");
                 });
 
             modelBuilder.Entity("CSupporter.Services.Products.Models.Warehouse", b =>

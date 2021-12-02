@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSupporter.Services.Products.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20211202193453_RebuildDB")]
+    [Migration("20211202195839_RebuildDB")]
     partial class RebuildDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,7 +46,7 @@ namespace CSupporter.Services.Products.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("CSupporter.Services.Products.Models.Warehouse", b =>
@@ -76,7 +76,7 @@ namespace CSupporter.Services.Products.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("Warehouse");
+                    b.ToTable("WarehouseAmounts");
                 });
 
             modelBuilder.Entity("CSupporter.Services.Products.Models.Warehouse", b =>
