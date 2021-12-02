@@ -1,37 +1,61 @@
-﻿using CSupporter.Services.Products.Models;
+﻿using CSupporter.Services.Products.Data.DbContexts;
+using CSupporter.Services.Products.Models;
 using CSupporter.Services.Products.Repositories.IRepositories;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Products.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        public Product AddProduct(Product product)
+        private ProductDbContext _productDbContext;
+
+        public ProductRepository(ProductDbContext productDbContext)
         {
-            throw new NotImplementedException();
+            _productDbContext = productDbContext;
         }
 
         public List<Product> GetAllProducts()
         {
-            throw new NotImplementedException();
+            return _productDbContext.Products.ToList();
         }
 
         public Product GetProductById(int productId)
         {
-            throw new NotImplementedException();
+            return _productDbContext.Products.Where(product => product.ProductId == productId).FirstOrDefault();
         }
 
-        public bool RemoveProduct(int productId)
+        public Product AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            _productDbContext.Products.Add(product);
+            _productDbContext.SaveChanges();
+            return product;
         }
 
         public Product UpdateProduct(Product product)
         {
-            throw new NotImplementedException();
+            Product productExist = _productDbContext.Products.Where(product => product.ProductId == product.ProductId).FirstOrDefault();
+
+            if (productExist != null)
+            { 
+                _productDbContext.Products.Update(product);
+                _productDbContext.SaveChanges();
+            }
+            return product;
+        }
+
+        public bool RemoveProduct(int productId)
+        {
+            Product productExist = _productDbContext.Products.Where(product => product.ProductId == product.ProductId).FirstOrDefault();
+
+            if (productExist != null)
+            {
+                _productDbContext.Products.Remove(productExist);
+                _productDbContext.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
     }
 }
