@@ -27,6 +27,7 @@ namespace CSupporter.Services.Products
         {
             services.AddScoped<IProductService, ProductService>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IWarehouseRepository, WarehouseRepository>();
             services.AddScoped<ProductsSeeder>();
 
             services.AddDbContext<ProductDbContext>(options =>

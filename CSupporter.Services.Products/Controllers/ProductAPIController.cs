@@ -9,10 +9,12 @@ namespace CSupporter.Services.Products.Controllers
     [Route("api/product")]
     public class ProductAPIController : Controller
     {
+        private readonly IWarehouseRepository _warehouseRepository;
         private readonly IProductRepository _productRepository;
 
-        public ProductAPIController(IProductRepository productRepository)
+        public ProductAPIController(IProductRepository productRepository, IWarehouseRepository warehouseRepository)
         {
+            _warehouseRepository = warehouseRepository;
             _productRepository = productRepository;
         }
 
@@ -42,7 +44,16 @@ namespace CSupporter.Services.Products.Controllers
 
             Product createdProduct = _productRepository.AddProduct(product, amount);
 
-            return Created($"api/product/{createdProduct.ProductId}", null);
+            return Created($"api/products/{createdProduct.ProductId}", null);
+        }
+
+        [HttpPut]
+        [Route("api/product/amount/{productId}/{changeAmount}")]
+        [ActionName("UpdateAmountProduct")]
+        public ActionResult<Product> UpdateAmountProduct(int productId, int changeAmount)
+        {
+            _warehouseRepository.ChangeAmountForProduct(productId, changeAmount);
+            return Created($"api/products/{productId}", null);
         }
 
         [HttpPut]

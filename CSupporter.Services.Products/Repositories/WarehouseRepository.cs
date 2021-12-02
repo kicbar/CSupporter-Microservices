@@ -1,13 +1,11 @@
 ﻿using CSupporter.Services.Products.Data.DbContexts;
 using CSupporter.Services.Products.Models;
-using System;
-using System.Collections.Generic;
+using CSupporter.Services.Products.Repositories.IRepositories;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Products.Repositories
 {
-    public class WarehouseRepository
+    public class WarehouseRepository : IWarehouseRepository
     {
         private readonly ProductDbContext _productDbContext;
 
