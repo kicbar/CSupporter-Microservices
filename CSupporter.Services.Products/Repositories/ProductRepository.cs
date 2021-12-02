@@ -27,11 +27,13 @@ namespace CSupporter.Services.Products.Repositories
 
         public Product AddProduct(Product product, int? amount = null)
         {
-            _productDbContext.Products.Add(product);
+            var result = _productDbContext.Products.Add(product);
+            _productDbContext.SaveChanges();
+            var newProduct = _productDbContext.Products.Where(p => p.Name == product.Name).FirstOrDefault();
             Warehouse warehouse = new Warehouse()
             {
-                ProductId = product.ProductId,
-                Amount = (int)(amount != null ? amount : 1390123)
+                ProductId = newProduct.ProductId,
+                Amount = (int)(amount != null ? amount : 1)
             };
 
             _productDbContext.Add(warehouse);
