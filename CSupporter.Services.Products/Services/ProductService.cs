@@ -2,7 +2,6 @@
 using CSupporter.Services.Products.Models;
 using CSupporter.Services.Products.Models.Dtos;
 using CSupporter.Services.Products.Services.IServices;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,7 +18,32 @@ namespace CSupporter.Services.Products.Services
 
         public List<ProductDto> GetAllEntireProducts()
         {
-            throw new NotImplementedException();
+            List<Product> products = _productDbContext.Products.ToList();
+            List<Warehouse> warehouses = _productDbContext.WarehouseAmounts.ToList();
+            List<ProductDto> productDtos = new List<ProductDto>();
+
+            foreach (Product product in products)
+            {
+                foreach (Warehouse warehouse in warehouses)
+                {
+                    if (warehouse.ProductId == product.ProductId)
+                    {
+                        ProductDto productDto = new ProductDto()
+                        {
+                            Name = product.Name,
+                            Category = product.Category,
+                            Price = product.Price,
+                            Details = product.Details,
+                            Amount = warehouse.Amount,
+                            Unit = warehouse.Unit
+                        };
+                        productDtos.Add(productDto);
+                    }
+                }
+
+            }
+
+            return productDtos;
         }
 
         public ProductDto GetEntireProduct(int productId)
@@ -29,7 +53,6 @@ namespace CSupporter.Services.Products.Services
 
             ProductDto productDto = new ProductDto() 
             { 
-                ProductId = product.ProductId,
                 Name = product.Name,
                 Category = product.Category,
                 Price = product.Price,

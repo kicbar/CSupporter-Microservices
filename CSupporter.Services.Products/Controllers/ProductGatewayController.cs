@@ -1,6 +1,7 @@
 ﻿using CSupporter.Services.Products.Models.Dtos;
 using CSupporter.Services.Products.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace CSupporter.Services.Products.Controllers
 {
@@ -20,6 +21,13 @@ namespace CSupporter.Services.Products.Controllers
         public ActionResult<ProductDto> GetCompleteProduct(int productId)
         {
             return _productService.GetEntireProduct(productId);
+        }
+
+        [HttpGet]
+        [ActionName("GetAllEntireProducts")]
+        public ActionResult<List<ProductDto>> GetAllEntireProducts()
+        {
+            return _productService.GetAllEntireProducts();
         }
     }
 }
