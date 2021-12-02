@@ -1,3 +1,5 @@
+using CSupporter.Services.Products.Data;
+using CSupporter.Services.Products.Data.DbContexts;
 using CSupporter.Services.Products.Repositories;
 using CSupporter.Services.Products.Repositories.IRepositories;
 using CSupporter.Services.Products.Services;
@@ -6,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +35,9 @@ namespace CSupporter.Services.Products
             services.AddScoped<IProductService, ProductService>();
             services.AddTransient<IProductRepository, ProductRepository>();
 
+            services.AddDbContext<ProductDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -39,7 +45,7 @@ namespace CSupporter.Services.Products
             });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProductsSeeder productSeeder)
         {
             if (env.IsDevelopment())
             {
@@ -58,6 +64,8 @@ namespace CSupporter.Services.Products
             {
                 endpoints.MapControllers();
             });
+
+            productSeeder.Seed();
         }
     }
 }
