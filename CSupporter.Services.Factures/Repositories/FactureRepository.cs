@@ -74,7 +74,7 @@ namespace CSupporter.Services.Factures.Repositories
 
             foreach (Position position in positions)
             {
-                factureValue = factureValue + position.ProductPrice * position.ProductAmount;
+                factureValue += position.ProductPrice * position.ProductAmount;
             }
 
             Facture facture = _factureDbContext.Factures.Where(facture => facture.FactureId == factureId).FirstOrDefault();

@@ -8,7 +8,7 @@ namespace CSupporter.Services.Products.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private ProductDbContext _productDbContext;
+        private readonly ProductDbContext _productDbContext;
 
         public ProductRepository(ProductDbContext productDbContext)
         {
@@ -30,7 +30,7 @@ namespace CSupporter.Services.Products.Repositories
             var result = _productDbContext.Products.Add(product);
             _productDbContext.SaveChanges();
             var newProduct = _productDbContext.Products.Where(p => p.Name == product.Name).FirstOrDefault();
-            Warehouse warehouse = new Warehouse()
+            Warehouse warehouse = new ()
             {
                 ProductId = newProduct.ProductId,
                 Amount = (int)(amount != null ? amount : 1)

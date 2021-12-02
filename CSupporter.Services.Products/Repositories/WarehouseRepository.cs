@@ -19,7 +19,7 @@ namespace CSupporter.Services.Products.Repositories
             Product productExist = _productDbContext.Products.Where(product => product.ProductId == productId).FirstOrDefault();
             if (productExist != null)
             {
-                Warehouse warehouse = new Warehouse()
+                Warehouse warehouse = new ()
                 {
                     ProductId = productId,
                     Amount = (int)(amount != null ? amount : 1)

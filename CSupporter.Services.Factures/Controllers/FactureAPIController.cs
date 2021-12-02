@@ -48,7 +48,7 @@ namespace CSupporter.Services.Factures.Controllers
         [ActionName("GetFactureDetails")]
         public async Task<ActionResult<EntireFactureDto>> GetFactureDetails(int factureId)
         {
-            EntireFactureDto entireFactureDto = new EntireFactureDto();
+            EntireFactureDto entireFactureDto = new ();
             FactureDto factureDto = _factureService.GetFactureById(factureId);
             if (factureDto != null)
             { 

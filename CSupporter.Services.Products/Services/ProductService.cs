@@ -20,7 +20,7 @@ namespace CSupporter.Services.Products.Services
         {
             List<Product> products = _productDbContext.Products.ToList();
             List<Warehouse> warehouses = _productDbContext.WarehouseAmounts.ToList();
-            List<ProductDto> productDtos = new List<ProductDto>();
+            List<ProductDto> productDtos = new ();
 
             foreach (Product product in products)
             {
@@ -28,7 +28,7 @@ namespace CSupporter.Services.Products.Services
                 {
                     if (warehouse.ProductId == product.ProductId)
                     {
-                        ProductDto productDto = new ProductDto()
+                        ProductDto productDto = new ()
                         {
                             Name = product.Name,
                             Category = product.Category,
@@ -51,7 +51,7 @@ namespace CSupporter.Services.Products.Services
             Product product = _productDbContext.Products.Where(product => product.ProductId == product.ProductId).FirstOrDefault();
             Warehouse warehouse = _productDbContext.WarehouseAmounts.Where(warehouse => warehouse.ProductId == productId).FirstOrDefault();
 
-            ProductDto productDto = new ProductDto() 
+            ProductDto productDto = new () 
             { 
                 Name = product.Name,
                 Category = product.Category,
