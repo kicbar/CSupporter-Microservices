@@ -11,7 +11,7 @@ namespace CSupporter.Services.Products.Data.DbContexts
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Product> WarehouseAmounts { get; set; }
+        public DbSet<Warehouse> WarehouseAmounts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
