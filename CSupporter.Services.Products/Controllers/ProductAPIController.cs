@@ -7,11 +7,11 @@ namespace CSupporter.Services.Products.Controllers
 {
     [ApiController]
     [Route("api/product")]
-    public class ProductController : Controller
+    public class ProductAPIController : Controller
     {
         private readonly IProductRepository _productRepository;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductAPIController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
@@ -23,7 +23,7 @@ namespace CSupporter.Services.Products.Controllers
             return _productRepository.GetAllProducts();
         }
 
-        [HttpGet("productId")]
+        [HttpGet("{productId}")]
         [ActionName("GetProduct")]
         public ActionResult<Product> GetProduct(int productId)
         {
@@ -57,7 +57,7 @@ namespace CSupporter.Services.Products.Controllers
             return Created($"api/product/{createdProduct.ProductId}", null);
         }
 
-        [HttpDelete("productId")]
+        [HttpDelete("{productId}")]
         [ActionName("RemoveProductById")]
         public ActionResult<bool> RemoveProductById(int productId)
         {
