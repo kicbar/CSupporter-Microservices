@@ -45,9 +45,9 @@ namespace CSupporter.Services.Contractors.Services
             Contractor contractor = _contractorRepository.GetContractorById(contractorId);
 
             string factureExist = await _factureAPIService.GetFactureForContractorAsync<string>(contractorId);
-
-/*            if (factureExist)
-                return false;*/
+            bool factureExistBool = bool.Parse(factureExist);
+            if (factureExistBool)
+                return false;
 
             bool resultOfRemove = _contractorRepository.DeleteContractor(contractor);
 

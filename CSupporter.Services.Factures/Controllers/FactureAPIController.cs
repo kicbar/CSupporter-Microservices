@@ -117,9 +117,9 @@ namespace CSupporter.Services.Factures.Controllers
         [HttpGet]
         [Route("contractor/{contractorId}")]
         [ActionName("FacturesForContractor")]
-        public ActionResult<string> FacturesForContractor(int contractorId)
+        public ActionResult<bool> FacturesForContractor(int contractorId)
         {
-            return Ok($"Facture For Contractor {contractorId} Exist");
+            return Ok(true);
         }
 
     }
