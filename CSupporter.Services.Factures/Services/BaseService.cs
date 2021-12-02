@@ -22,7 +22,7 @@ namespace CSupporter.Services.Factures.Services
             try
             {
                 var client = httpClient.CreateClient("CSupprterAPI");
-                HttpRequestMessage message = new HttpRequestMessage();
+                HttpRequestMessage message = new ();
                 message.Headers.Add("Accept", "application/json");
                 message.RequestUri = new Uri(requestAPI.Url);
                 client.DefaultRequestHeaders.Clear();
@@ -44,6 +44,8 @@ namespace CSupporter.Services.Factures.Services
                     case SD.ApiType.DELETE:
                         message.Method = HttpMethod.Delete;
                         break;
+                    case SD.ApiType.GET:
+                        break;
                     default:
                         message.Method = HttpMethod.Get;
                         break;
@@ -59,9 +61,6 @@ namespace CSupporter.Services.Factures.Services
             }
         }
 
-        public void Dispose()
-        {
-            GC.SuppressFinalize(true);
-        }
+        public void Dispose() => GC.SuppressFinalize(true);
     }
 }

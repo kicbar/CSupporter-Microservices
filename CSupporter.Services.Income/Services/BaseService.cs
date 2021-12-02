@@ -22,7 +22,7 @@ namespace CSupporter.Services.Income.Services
             try
             {
                 var client = httpClient.CreateClient("CSupprterAPI");
-                HttpRequestMessage message = new HttpRequestMessage();
+                HttpRequestMessage message = new ();
                 message.Headers.Add("Accept", "application/json");
                 message.RequestUri = new Uri(requestAPI.Url);
                 client.DefaultRequestHeaders.Clear();
@@ -43,6 +43,8 @@ namespace CSupporter.Services.Income.Services
                         break;
                     case SD.ApiType.DELETE:
                         message.Method = HttpMethod.Delete;
+                        break;
+                    case SD.ApiType.GET:
                         break;
                     default:
                         message.Method = HttpMethod.Get;
