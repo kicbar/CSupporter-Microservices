@@ -119,7 +119,7 @@ namespace CSupporter.Services.Factures.Controllers
         [ActionName("FacturesForContractor")]
         public ActionResult<bool> FacturesForContractor(int contractorId)
         {
-            return Ok(true);
+            return Ok(_factureService.GetFacturesForContractor(contractorId));
         }
 
     }

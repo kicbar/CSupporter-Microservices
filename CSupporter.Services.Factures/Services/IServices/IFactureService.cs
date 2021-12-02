@@ -7,6 +7,7 @@ namespace CSupporter.Services.Factures.Services.IServices
     {
         List<FactureDto> GetAllFactures();
         FactureDto GetFactureById(int factureId);
+        bool GetFacturesForContractor(int contractorId);
         FactureDto CreateUpdateFacture(FactureDto factureDto);
         bool DeleteFacture(int factureId);
         void CalculateFacturesValue();

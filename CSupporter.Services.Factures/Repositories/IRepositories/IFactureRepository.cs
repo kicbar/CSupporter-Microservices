@@ -7,6 +7,7 @@ namespace CSupporter.Services.Factures.Repositories.IRepositories
     {
         List<Facture> GetAllFactures();
         Facture GetFactureById(int factureId);
+        bool GetFacturesForContractor(int contractorId);
         Facture CreateUpdateFacture(Facture facture);
         bool DeleteFacture(int factureId);
         void CalculateFacturesValue();

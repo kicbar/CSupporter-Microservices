@@ -26,6 +26,11 @@ namespace CSupporter.Services.Factures.Repositories
             return _factureDbContext.Factures.Where(f => f.FactureId == factureId).FirstOrDefault();
         }
 
+        public bool GetFacturesForContractor(int contractorId)
+        {
+            return _factureDbContext.Factures.Where(f => f.ContractorId == contractorId).Any();
+        }
+
         public Facture CreateUpdateFacture(Facture facture)
         {
             Facture factureExist = _factureDbContext.Factures.Where(f => f.FactureId == facture.FactureId).FirstOrDefault();
