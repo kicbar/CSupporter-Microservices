@@ -15,7 +15,6 @@ namespace CSupporter.Services.Contractors.Services
         }
         public async Task<string> GetFactureForContractorAsync<T>(int contractorId)
         {
-            string url = SD.FacturesAPI + $"api/facture/contractor/{contractorId}";
             return await this.SendAsync<T>(new RequestAPI()
             {
                 ApiType = SD.ApiType.GET,
