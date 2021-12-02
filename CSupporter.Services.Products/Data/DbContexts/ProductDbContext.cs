@@ -1,9 +1,5 @@
 ﻿using CSupporter.Services.Products.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CSupporter.Services.Products.Data.DbContexts
 {
@@ -15,10 +11,13 @@ namespace CSupporter.Services.Products.Data.DbContexts
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Product> WarehouseAmounts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Product>()
+                        .HasOne(product => product.WarehouseAmounts)
+                        .WithOne(warehouseAmounts => warehouseAmounts.Product);
         }
     }
 }
