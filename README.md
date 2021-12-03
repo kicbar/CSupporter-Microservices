@@ -2,7 +2,7 @@
 <h3>This is simple web app for enterprise to mange resources such as: contractors, factures, incomes, products and warehouse. Application is prepared as use case of microservices architecture.</h3>
 <i>Microservices architecture in project:</i></br>
 <p align="center">
-   <img src="https://github.com/kicbar/CSupporter-Microservices/blob/master/CSupporter.View/wwwroot/imgs/microservices_architecture.png?raw=true" alt="Sublime's custom image"/>
+   <img src="https://github.com/kicbar/CSupporter-Microservices/blob/master/CSupporter.View/wwwroot/imgs/microservices_architecture-new.png?raw=true" alt="CSupporter Microservice Architecture"/>
 </p>
 <h3 align="left">Languages and tools used in Project:</h3>
 <p align="left">
