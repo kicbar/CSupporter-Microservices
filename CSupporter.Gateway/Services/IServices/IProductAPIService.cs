@@ -4,6 +4,6 @@ namespace CSupporter.Gateway.Services.IServices
 {
     public interface IProductAPIService
     {
-        Task<string> GetProductByIdAsync<T>(int contractorId);
+        Task<string> GetProductByIdAsync<T>(int productId);
     }
 }

@@ -21,6 +21,10 @@ namespace CSupporter.Gateway
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient<IContractorAPIService, ContractorAPIService>();
+            services.AddHttpClient<IFactureAPIService, FactureAPIService>();
+            services.AddHttpClient<IProductAPIService, ProductAPIService>();
+
             services.AddScoped<IContractorAPIService, ContractorAPIService>();
             services.AddScoped<IFactureAPIService, FactureAPIService>();
             services.AddScoped<IProductAPIService, ProductAPIService>();

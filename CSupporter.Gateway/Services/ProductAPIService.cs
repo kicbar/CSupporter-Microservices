@@ -1,16 +1,26 @@
-﻿using CSupporter.Gateway.Services.IServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using CSupporter.Gateway.Options;
+using CSupporter.Gateway.Services.IServices;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CSupporter.Gateway.Services
 {
     public class ProductAPIService : BaseService, IProductAPIService
     {
-        public Task<string> GetProductByIdAsync<T>(int contractorId)
+        private readonly IHttpClientFactory _clientFactory;
+
+        public ProductAPIService(IHttpClientFactory clientFactory) : base(clientFactory)
         {
-            throw new NotImplementedException();
+            _clientFactory = clientFactory;
+        }
+
+        public async Task<string> GetProductByIdAsync<T>(int productId)
+        {
+            return await this.SendAsync<T>(new RequestAPI()
+            {
+                ApiType = SD.ApiType.GET,
+                Url = SD.ContractorsAPI + "api/product/" + productId
+            });
         }
     }
 }
