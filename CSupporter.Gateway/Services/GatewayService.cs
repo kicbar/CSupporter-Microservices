@@ -11,12 +11,14 @@ namespace CSupporter.Gateway.Services
     public class GatewayService : IGatewayService
     {
         private readonly IContractorAPIService _contractorAPIService;
+        private readonly IPositionAPIService _positionAPIService;
         private readonly IFactureAPIService _factureAPIService;
         private readonly IProductAPIService _productAPIService;
 
-        public GatewayService(IContractorAPIService contractorAPIService, IFactureAPIService factureAPIService, IProductAPIService productAPIService)
+        public GatewayService(IContractorAPIService contractorAPIService, IFactureAPIService factureAPIService, IProductAPIService productAPIService, IPositionAPIService positionAPIService)
         {
             _contractorAPIService = contractorAPIService;
+            _positionAPIService = positionAPIService;
             _factureAPIService = factureAPIService;
             _productAPIService = productAPIService;
         }
@@ -47,6 +49,13 @@ namespace CSupporter.Gateway.Services
                 factureDetailsDto.ContractorLastName = contractorDto.LastName;
                 factureDetailsDto.ContractorNIP = contractorDto.NIP;
                 factureDetailsDto.ContractorAddress = contractorDto.Address;
+            }
+
+            var responsePositions = await _positionAPIService.GetPositionsForFacturesById<List<PositionDto>>(factureId);
+            if (responsePositions != null)
+            {
+                List<PositionDto> positionsDto = JsonConvert.DeserializeObject<List<PositionDto>>(Convert.ToString(responsePositions));
+                factureDetailsDto.Positions = positionsDto;
             }
 
             return factureDetailsDto;
