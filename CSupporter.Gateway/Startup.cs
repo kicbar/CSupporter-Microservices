@@ -1,4 +1,6 @@
 using CSupporter.Gateway.Options;
+using CSupporter.Gateway.Services;
+using CSupporter.Gateway.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +21,10 @@ namespace CSupporter.Gateway
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IContractorAPIService, ContractorAPIService>();
+            services.AddScoped<IFactureAPIService, FactureAPIService>();
+            services.AddScoped<IProductAPIService, ProductAPIService>();
+
             SD.ContractorsAPI = Configuration["ServiceUrls:ContractorsAPI"];
             SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
             SD.ProductsAPI = Configuration["ServiceUrls:ProductsAPI"];
