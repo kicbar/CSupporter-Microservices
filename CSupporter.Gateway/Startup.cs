@@ -28,6 +28,7 @@ namespace CSupporter.Gateway
             services.AddScoped<IContractorAPIService, ContractorAPIService>();
             services.AddScoped<IFactureAPIService, FactureAPIService>();
             services.AddScoped<IProductAPIService, ProductAPIService>();
+            services.AddScoped<IGatewayService, GatewayService>();
 
             SD.ContractorsAPI = Configuration["ServiceUrls:ContractorsAPI"];
             SD.FacturesAPI = Configuration["ServiceUrls:FacturesAPI"];
