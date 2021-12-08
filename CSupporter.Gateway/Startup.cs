@@ -24,10 +24,12 @@ namespace CSupporter.Gateway
             services.AddHttpClient<IContractorAPIService, ContractorAPIService>();
             services.AddHttpClient<IFactureAPIService, FactureAPIService>();
             services.AddHttpClient<IProductAPIService, ProductAPIService>();
+            services.AddHttpClient<IPositionAPIService, PositionAPIService>();
 
             services.AddScoped<IContractorAPIService, ContractorAPIService>();
             services.AddScoped<IFactureAPIService, FactureAPIService>();
             services.AddScoped<IProductAPIService, ProductAPIService>();
+            services.AddScoped<IPositionAPIService, PositionAPIService>();
             services.AddScoped<IGatewayService, GatewayService>();
 
             SD.ContractorsAPI = Configuration["ServiceUrls:ContractorsAPI"];
