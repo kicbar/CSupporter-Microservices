@@ -21,17 +21,23 @@ namespace CSupporter.Gateway.Services
             _productAPIService = productAPIService;
         }
 
-        public async Task<FactureDto> GetFactureWithDetailsAsync(int factureId)
+        public async Task<FactureDetailsDto> GetFactureWithDetailsAsync(int factureId)
         {
-            FactureDto entireFactureDto = new();
+            FactureDetailsDto factureDetailsDto = new();
 
+            var responseFacture = await _factureAPIService.GetFactureByIdAsync<FactureDto>(factureId);
 
-            return entireFactureDto;
-        }
+            if (responseFacture != null)
+            {
+                FactureDto factureDto = JsonConvert.DeserializeObject<FactureDto>(Convert.ToString(responseFacture));
+                factureDetailsDto.FactureId = factureDto.FactureId;
+                factureDetailsDto.FactureNo = factureDto.FactureNo;
+                factureDetailsDto.FactureValue = factureDto.FactureValue;
+                factureDetailsDto.FactureType = factureDto.FactureType;
+                factureDetailsDto.FactureDate = factureDto.FactureDate;
+            }
 
-        FactureDto IGatewayService.GetFactureWithDetailsAsync(int factureId)
-        {
-            throw new NotImplementedException();
+            return factureDetailsDto;
         }
     }
 }

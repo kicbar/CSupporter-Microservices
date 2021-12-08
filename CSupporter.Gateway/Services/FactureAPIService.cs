@@ -19,7 +19,7 @@ namespace CSupporter.Gateway.Services
             return await this.SendAsync<T>(new RequestAPI()
             {
                 ApiType = SD.ApiType.GET,
-                Url = SD.ContractorsAPI + "api/facture/" + factureId
+                Url = SD.FacturesAPI + "api/facture/" + factureId
             });
         }
     }

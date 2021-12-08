@@ -1,5 +1,7 @@
 ﻿using CSupporter.Gateway.Dtos;
+using CSupporter.Gateway.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CSupporter.Gateway.Controllers
 {
@@ -7,17 +9,20 @@ namespace CSupporter.Gateway.Controllers
     [Route("api/gateway")]
     public class GatewayController : Controller
     {
-        public GatewayController()
-        {
+        private readonly IGatewayService _gatewayService;
 
+        public GatewayController(IGatewayService gatewayService)
+        {
+            _gatewayService = gatewayService;
         }
 
         [HttpGet]
-        [Route("/api/gateway/facture")]
+        [Route("/api/gateway/facture/{factureId}")]
         [ActionName("GetFactureWithDetails")]
-        public ActionResult<FactureDto> GetFactureWithDetails()
+        public async Task<ActionResult<FactureDetailsDto>> GetFactureWithDetails(int factureId)
         {
-            return Ok("Return facture dto");
+            FactureDetailsDto factureDetailsDto = await _gatewayService.GetFactureWithDetailsAsync(factureId);
+            return factureDetailsDto;
         }
     }
 }

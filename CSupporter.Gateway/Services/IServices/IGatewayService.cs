@@ -1,9 +1,10 @@
 ﻿using CSupporter.Gateway.Dtos;
+using System.Threading.Tasks;
 
 namespace CSupporter.Gateway.Services.IServices
 {
     public interface IGatewayService
     {
-        FactureDto GetFactureWithDetailsAsync(int factureId);
+        Task<FactureDetailsDto> GetFactureWithDetailsAsync(int factureId);
     }
 }
