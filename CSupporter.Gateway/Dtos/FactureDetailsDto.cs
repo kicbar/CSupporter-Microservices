@@ -5,7 +5,6 @@ namespace CSupporter.Gateway.Dtos
 {
     public class FactureDetailsDto
     {
-        public int FactureId { get; set; }
         public string FactureNo { get; set; }
         public string FactureType { get; set; }
         public DateTime FactureDate { get; set; }

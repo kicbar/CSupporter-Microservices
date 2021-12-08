@@ -24,17 +24,29 @@ namespace CSupporter.Gateway.Services
         public async Task<FactureDetailsDto> GetFactureWithDetailsAsync(int factureId)
         {
             FactureDetailsDto factureDetailsDto = new();
+            int contractorIdForFacture = 0;
 
             var responseFacture = await _factureAPIService.GetFactureByIdAsync<FactureDto>(factureId);
 
             if (responseFacture != null)
             {
                 FactureDto factureDto = JsonConvert.DeserializeObject<FactureDto>(Convert.ToString(responseFacture));
-                factureDetailsDto.FactureId = factureDto.FactureId;
                 factureDetailsDto.FactureNo = factureDto.FactureNo;
-                factureDetailsDto.FactureValue = factureDto.FactureValue;
+                factureDetailsDto.FactureValue = factureDto.Value;
                 factureDetailsDto.FactureType = factureDto.FactureType;
                 factureDetailsDto.FactureDate = factureDto.FactureDate;
+                contractorIdForFacture = factureDto.ContractorId;
+            }
+
+            var responseContractor = await _contractorAPIService.GetContractorByIdAsync<ContractorDto>(contractorIdForFacture);
+            if (responseContractor != null)
+            {
+                ContractorDto contractorDto = JsonConvert.DeserializeObject<ContractorDto>(Convert.ToString(responseContractor));
+                factureDetailsDto.ContractorCompanyName = contractorDto.CompanyName;
+                factureDetailsDto.ContractorFirstName = contractorDto.FirstName;
+                factureDetailsDto.ContractorLastName = contractorDto.LastName;
+                factureDetailsDto.ContractorNIP = contractorDto.NIP;
+                factureDetailsDto.ContractorAddress = contractorDto.Address;
             }
 
             return factureDetailsDto;
